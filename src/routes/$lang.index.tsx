@@ -214,12 +214,12 @@ function Home() {
         <Kicker>{t.projects.kicker}</Kicker>
         <SectionTitle>{t.projects.title}</SectionTitle>
         <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {t.projects.items.map((p, i) => (
-            <article key={p.name} className="lift group relative overflow-hidden border border-hairline bg-surface">
+          {t.projects.rows.slice(0, 3).map((row, i) => (
+            <article key={row.name} className="lift group relative overflow-hidden border border-hairline bg-surface">
               <div className="relative h-52 overflow-hidden">
                 <img
                   src={i === 2 ? controlImg : i === 1 ? heroImg : riyadhImg}
-                  alt={p.name}
+                  alt={row.name}
                   loading="lazy"
                   width={1600}
                   height={1000}
@@ -228,8 +228,8 @@ function Home() {
                 <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent" />
               </div>
               <div className="p-7">
-                <h3 className="text-lg font-bold">{p.name}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{p.scope}</p>
+                <h3 className="text-lg font-bold">{row.name}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{row.location}</p>
               </div>
             </article>
           ))}
