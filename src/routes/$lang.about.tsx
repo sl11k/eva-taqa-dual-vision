@@ -19,7 +19,7 @@ function About() {
     <>
       <PageHero lang={lang} kicker={t.about.kicker} title={t.about.title} intro={t.about.body[0]} />
 
-      <Section>
+      <Section className="section-light border-b border-hairline">
         <div className="grid gap-14 lg:grid-cols-2 lg:items-center">
           <div className="relative overflow-hidden border border-hairline">
             <img
@@ -30,7 +30,8 @@ function About() {
               height={1008}
               className="h-full w-full object-cover"
             />
-            <div className="pointer-events-none absolute inset-0 bg-background/25" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1 bg-orange" />
+
           </div>
           <div>
             <p className="text-muted-foreground">{t.about.body[1]}</p>
