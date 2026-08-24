@@ -18,7 +18,7 @@ function Projects() {
     <>
       <PageHero lang={lang} kicker={t.projects.kicker} title={t.projects.title} intro={t.projects.note} />
 
-      <Section>
+      <Section className="section-light">
         <div className="max-w-4xl">
           <p className="text-lg text-muted-foreground">{t.projects.intro}</p>
           <h2 className="mt-16 text-3xl font-extrabold md:text-4xl">{t.projects.majorTitle}</h2>
@@ -38,7 +38,7 @@ function Projects() {
               <tbody className="divide-y divide-hairline">
                 {t.projects.rows.map((row, i) => (
                   <tr key={`${row.name}-${i}`} className="transition-colors hover:bg-surface-2/40">
-                    <td className="px-5 py-4 text-muted-foreground">{i + 1}</td>
+                    <td className="px-5 py-4 font-bold text-orange">{i + 1}</td>
                     <td className="px-5 py-4 font-semibold">{row.name}</td>
                     <td className="px-5 py-4 text-muted-foreground">{row.location}</td>
                   </tr>

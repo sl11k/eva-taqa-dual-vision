@@ -147,7 +147,8 @@ function Home() {
       </Section>
 
       {/* SERVICES */}
-      <Section>
+      <Section className="section-light border-y border-hairline">
+
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <Kicker>{t.services.kicker}</Kicker>
@@ -168,12 +169,15 @@ function Home() {
               <Link
                 key={slug}
                 to={`/${lang}/services/${slug}`}
-                className="group relative bg-background p-9 transition-colors hover:bg-surface"
+                className="group relative bg-surface p-9 transition-colors hover:bg-surface-2"
               >
-                <span className="text-xs font-bold tracking-widest text-cyan/70">{s.num}</span>
+                <span className="inline-flex h-9 w-9 items-center justify-center bg-orange text-xs font-bold tracking-widest text-white">
+                  {s.num}
+                </span>
                 <h3 className="mt-5 text-xl font-bold">{s.title}</h3>
                 <p className="mt-4 text-sm text-muted-foreground">{s.desc}</p>
-                <span className="mt-7 inline-flex items-center gap-2 text-xs font-bold text-cyan opacity-0 transition-opacity group-hover:opacity-100">
+                <span className="mt-7 inline-flex items-center gap-2 text-xs font-bold text-orange opacity-0 transition-opacity group-hover:opacity-100">
+
                   {t.services.detailCta}
                   <Arrow className="size-3.5" />
                 </span>
@@ -210,7 +214,7 @@ function Home() {
       </Section>
 
       {/* PROJECTS */}
-      <Section>
+      <Section className="section-light border-b border-hairline">
         <Kicker>{t.projects.kicker}</Kicker>
         <SectionTitle>{t.projects.title}</SectionTitle>
         <div className="mt-14 grid gap-6 md:grid-cols-3">
@@ -223,9 +227,10 @@ function Home() {
                   loading="lazy"
                   width={1600}
                   height={1000}
-                  className="h-full w-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-105"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 h-1 bg-orange" />
+
               </div>
               <div className="p-7">
                 <h3 className="text-lg font-bold">{row.name}</h3>

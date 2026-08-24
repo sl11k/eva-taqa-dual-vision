@@ -72,11 +72,11 @@ function ServiceDetail() {
         </div>
       </section>
 
-      <Section className="border-y border-hairline">
+      <Section className="section-light border-y border-hairline">
         <div className="grid gap-px bg-hairline md:grid-cols-3">
           {s.points.map((p, i) => (
-            <div key={p} className="bg-background p-9">
-              <span className="text-xs font-bold tracking-widest text-cyan/70">
+            <div key={p} className="bg-surface p-9">
+              <span className="inline-flex h-9 w-9 items-center justify-center bg-orange text-xs font-bold tracking-widest text-white">
                 {lang === "ar" ? ["٠١", "٠٢", "٠٣"][i] : `0${i + 1}`}
               </span>
               <p className="mt-5 font-semibold">{p}</p>
@@ -84,6 +84,7 @@ function ServiceDetail() {
           ))}
         </div>
       </Section>
+
 
       <Section>
         <div className="flex flex-wrap items-end justify-between gap-6">
