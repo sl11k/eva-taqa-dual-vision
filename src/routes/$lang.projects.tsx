@@ -37,7 +37,7 @@ function Projects() {
               </thead>
               <tbody className="divide-y divide-hairline">
                 {t.projects.rows.map((row, i) => (
-                  <tr key={row.name} className="transition-colors hover:bg-surface-2/40">
+                  <tr key={`${row.name}-${i}`} className="transition-colors hover:bg-surface-2/40">
                     <td className="px-5 py-4 text-muted-foreground">{i + 1}</td>
                     <td className="px-5 py-4 font-semibold">{row.name}</td>
                     <td className="px-5 py-4 text-muted-foreground">{row.location}</td>
