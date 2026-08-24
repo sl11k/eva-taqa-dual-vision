@@ -8,7 +8,7 @@ import { PageHero, Section } from "@/components/site/Section";
 
 export const Route = createFileRoute("/$lang/contact")({
   head: ({ params }) => pageHead(isLang(params.lang) ? params.lang : "en", "contact", "/contact"),
-  component: Contact;
+  component: Contact,
 });
 
 function Contact() {
