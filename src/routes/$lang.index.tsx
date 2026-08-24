@@ -169,12 +169,15 @@ function Home() {
               <Link
                 key={slug}
                 to={`/${lang}/services/${slug}`}
-                className="group relative bg-background p-9 transition-colors hover:bg-surface"
+                className="group relative bg-surface p-9 transition-colors hover:bg-surface-2"
               >
-                <span className="text-xs font-bold tracking-widest text-cyan/70">{s.num}</span>
+                <span className="inline-flex h-9 w-9 items-center justify-center bg-orange text-xs font-bold tracking-widest text-white">
+                  {s.num}
+                </span>
                 <h3 className="mt-5 text-xl font-bold">{s.title}</h3>
                 <p className="mt-4 text-sm text-muted-foreground">{s.desc}</p>
-                <span className="mt-7 inline-flex items-center gap-2 text-xs font-bold text-cyan opacity-0 transition-opacity group-hover:opacity-100">
+                <span className="mt-7 inline-flex items-center gap-2 text-xs font-bold text-orange opacity-0 transition-opacity group-hover:opacity-100">
+
                   {t.services.detailCta}
                   <Arrow className="size-3.5" />
                 </span>
