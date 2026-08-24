@@ -54,7 +54,7 @@ export function Header({ lang }: { lang: Lang }) {
             <Link
               key={l.to}
               to={l.to}
-              activeOptions={{ exact: l.exact }}
+              activeOptions={{ exact: l.exact === true }}
               className="relative py-1 text-sm text-muted-foreground transition-colors hover:text-foreground data-[status=active]:text-foreground"
               activeProps={{ className: "text-foreground" }}
             >
@@ -98,7 +98,7 @@ export function Header({ lang }: { lang: Lang }) {
                 to={l.to}
                 className="border-b border-hairline py-3 text-sm text-muted-foreground"
                 activeProps={{ className: "text-foreground" }}
-                activeOptions={{ exact: l.exact }}
+                activeOptions={{ exact: l.exact === true }}
               >
                 {l.label}
               </Link>
