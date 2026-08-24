@@ -43,7 +43,9 @@
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
   --color-cyan: var(--cyan);
+  --color-orange: var(--orange);
   --color-hairline: var(--hairline);
+
 }
 
 :root {
