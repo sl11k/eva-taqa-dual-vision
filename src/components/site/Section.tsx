@@ -41,7 +41,7 @@ export function PageHero({
   lang: Lang;
   kicker: string;
   title: string;
-  intro?: string;
+  intro?: string | undefined;
 }) {
   return (
     <section className="relative overflow-hidden border-b border-hairline pt-40 pb-20">

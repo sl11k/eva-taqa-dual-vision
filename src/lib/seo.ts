@@ -1,8 +1,9 @@
 import { DICT, type Lang } from "@/content/site";
 
 /** Builds title/description/OG/twitter meta + canonical & hreflang alternates. */
-export function pageHead(lang: Lang, key: string, subpath: string, override?: { title?: string; description?: string }) {
-  const t = DICT[lang].meta[key] ?? DICT[lang].meta.home;
+export function pageHead(lang: Lang, key: string, subpath: string, override?: { title?: string | undefined; description?: string | undefined }) {
+  const metas = DICT[lang].meta;
+  const t = metas[key] ?? metas["home"]!;
   const title = override?.title ?? t.title;
   const description = override?.description ?? t.description;
   const path = `/${lang}${subpath}`;

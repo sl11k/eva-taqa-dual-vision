@@ -10,7 +10,8 @@ export function langFromPath(pathname: string): Lang {
 /** Same page, other language. /en/services/x -> /ar/services/x */
 export function swapLangPath(pathname: string, to: Lang): string {
   const parts = pathname.split("/").filter(Boolean);
-  if (parts.length && isLang(parts[0])) parts[0] = to;
+  const first = parts[0];
+  if (first && isLang(first)) parts[0] = to;
   else parts.unshift(to);
   return "/" + parts.join("/");
 }

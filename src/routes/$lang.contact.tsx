@@ -20,8 +20,9 @@ function Contact() {
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
+    const keys = ["name", "company", "email", "phone", "projectType", "message"];
     const body = [f.name, f.company, f.email, f.phone, f.projectType, f.message]
-      .map((label, i) => `${label}: ${data.get(["name", "company", "email", "phone", "projectType", "message"][i]) ?? ""}`)
+      .map((label, i) => `${label}: ${String(data.get(keys[i] ?? "") ?? "")}`)
       .join("\n");
     window.location.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent(
       lang === "ar" ? "استفسار جديد — إيفا طاقة" : "New inquiry — EVA TAQA",
