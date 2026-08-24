@@ -147,7 +147,8 @@ function Home() {
       </Section>
 
       {/* SERVICES */}
-      <Section>
+      <Section className="section-light border-y border-hairline">
+
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <Kicker>{t.services.kicker}</Kicker>
