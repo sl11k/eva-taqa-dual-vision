@@ -230,11 +230,34 @@ export const en: Dict = {
     kicker: "Track record",
     title: "Completed Projects",
     note: "Project details are published only as supplied by the company.",
-    items: [
-      { name: "Riyadh Metro Project", scope: "Electrical works" },
-      { name: "Saudi Telecom Company", scope: "Electrical works" },
-      { name: "Electronic University – Riyadh & Dammam", scope: "Electrical works" },
+    intro:
+      "EVA TAQA delivers critical electrical power systems with reliability, safety, and long-term maintenance support — aligned with local and national standards in Saudi Arabia.",
+    majorTitle: "Major Completed Projects — المشاريع المنجزة",
+    majorNote:
+      "These projects highlight EVA TAQA’s delivery of high-reliability electrical infrastructure — from government facilities to national mobility projects and large-scale industrial clients.",
+    tableHeaders: { num: "#", project: "Project / Client", location: "Location" },
+    rows: [
+      { name: "Saline Water Conversion Corporation project", location: "Shuqaiq City" },
+      { name: "Electronic University project", location: "Dammam" },
+      { name: "Riyadh Metro Project", location: "Riyadh" },
+      { name: "Electronic University Project (Women’s Campus)", location: "Riyadh" },
+      { name: "Electronic University Project (Men’s Campus)", location: "Riyadh" },
+      { name: "Saudi Telecom Company Project", location: "Saudi Telecom Company" },
+      { name: "Ministry of Foreign Affairs Project", location: "Medina" },
+      { name: "Ministry of Foreign Affairs Project", location: "Riyadh" },
+      { name: "Altadrea Manufacturing Company Project", location: "—" },
+      { name: "Alshaya International Trading Company Project", location: "—" },
+      { name: "Municipality of Khapra City Project", location: "Khapra City" },
+      { name: "Ministry of Foreign Affairs – batteries project", location: "Riyadh" },
+      { name: "Battery project of the Ministry of Hajj and Umrah", location: "—" },
     ],
+    cta: {
+      title: "Need high-reliability power for your facility?",
+      body:
+        "Tell us about your site. Our engineering team will propose the safest technical and most economical electrical solution.",
+      primary: "Contact Us",
+      secondary: "Request a Proposal",
+    },
   },
   reliability: {
     title: ["High Reliability.", "Safe Delivery."],
@@ -411,11 +434,34 @@ export const ar: Dict = {
     kicker: "سجل الأعمال",
     title: "المشاريع المنجزة",
     note: "تُنشر تفاصيل المشاريع كما توفرها الشركة فقط.",
-    items: [
-      { name: "مشروع مترو الرياض", scope: "أعمال كهربائية" },
-      { name: "شركة الاتصالات السعودية", scope: "أعمال كهربائية" },
-      { name: "الجامعة السعودية الإلكترونية – الرياض والدمام", scope: "أعمال كهربائية" },
+    intro:
+      "تُقدم إيفا طاقة أنظمة طاقة كهربائية حيوية بموثوقية وسلامة ودعم صيانة طويل الأمد — بما يتوافق مع المعايير المحلية والوطنية في المملكة العربية السعودية.",
+    majorTitle: "المشاريع المنجزة — Major Completed Projects",
+    majorNote:
+      "تُبرز هذه المشاريع قدرة إيفا طاقة على تسليم بنية تحتية كهربائية عالية الموثوقية — من المنشآت الحكومية إلى المشاريع الوطنية للنقل والعملاء الصناعيين الكبار.",
+    tableHeaders: { num: "م", project: "المشروع / العميل", location: "الموقع" },
+    rows: [
+      { name: "مشروع شركة تحلية المياه المالحة", location: "مدينة الشقيق" },
+      { name: "مشروع الجامعة السعودية الإلكترونية", location: "الدمام" },
+      { name: "مشروع مترو الرياض", location: "الرياض" },
+      { name: "مشروع الجامعة السعودية الإلكترونية (فرع الطالبات)", location: "الرياض" },
+      { name: "مشروع الجامعة السعودية الإلكترونية (فرع الطلاب)", location: "الرياض" },
+      { name: "مشروع شركة الاتصالات السعودية", location: "شركة الاتصالات السعودية" },
+      { name: "مشروع وزارة الخارجية", location: "المدينة المنورة" },
+      { name: "مشروع وزارة الخارجية", location: "الرياض" },
+      { name: "مشروع شركة التدريع للصناعة", location: "—" },
+      { name: "مشروع شركة الشايع للتجارة الدولية", location: "—" },
+      { name: "مشروع بلدية مدينة خابرا", location: "مدينة خابرا" },
+      { name: "مشروع وزارة الخارجية – بطاريات", location: "الرياض" },
+      { name: "مشروع بطاريات وزارة الحج والعمرة", location: "—" },
     ],
+    cta: {
+      title: "هل تحتاج إلى طاقة عالية الموثوقية لمنشأتك؟",
+      body:
+        "أخبرنا عن موقعك واحتياجاتك. سيعمل فريقنا الهندسي على اقتراح الحل الكهربائي الأكثر أماناً والأوفر اقتصادياً.",
+      primary: "تواصل معنا",
+      secondary: "اطلب عرضاً",
+    },
   },
   reliability: {
     title: ["موثوقية عالية.", "وتنفيذ آمن."],
