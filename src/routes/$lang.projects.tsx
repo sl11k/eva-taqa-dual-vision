@@ -18,7 +18,7 @@ function Projects() {
     <>
       <PageHero lang={lang} kicker={t.projects.kicker} title={t.projects.title} intro={t.projects.note} />
 
-      <Section>
+      <Section className="section-light">
         <div className="max-w-4xl">
           <p className="text-lg text-muted-foreground">{t.projects.intro}</p>
           <h2 className="mt-16 text-3xl font-extrabold md:text-4xl">{t.projects.majorTitle}</h2>
