@@ -152,7 +152,25 @@
   display: inline-block;
 }
 
+/* Light "brand book" sections: white paper, navy text, orange accents */
+@utility section-light {
+  --background: oklch(0.985 0.002 250);
+  --foreground: oklch(0.22 0.045 250);
+  --surface: oklch(1 0 0);
+  --surface-2: oklch(0.965 0.004 250);
+  --card: oklch(1 0 0);
+  --muted: oklch(0.955 0.005 250);
+  --muted-foreground: oklch(0.48 0.025 250);
+  --border: oklch(0.22 0.045 250 / 14%);
+  --hairline: oklch(0.22 0.045 250 / 10%);
+  --cyan: oklch(0.62 0.18 46);
+  --gradient-accent: linear-gradient(90deg, var(--orange), oklch(0.72 0.16 60));
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
 @utility glass {
+
   background: color-mix(in oklab, var(--surface) 62%, transparent);
   backdrop-filter: blur(18px) saturate(140%);
   border-bottom: 1px solid var(--hairline);
