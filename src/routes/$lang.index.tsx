@@ -214,7 +214,7 @@ function Home() {
       </Section>
 
       {/* PROJECTS */}
-      <Section>
+      <Section className="section-light border-b border-hairline">
         <Kicker>{t.projects.kicker}</Kicker>
         <SectionTitle>{t.projects.title}</SectionTitle>
         <div className="mt-14 grid gap-6 md:grid-cols-3">
@@ -227,9 +227,10 @@ function Home() {
                   loading="lazy"
                   width={1600}
                   height={1000}
-                  className="h-full w-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-105"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 h-1 bg-orange" />
+
               </div>
               <div className="p-7">
                 <h3 className="text-lg font-bold">{row.name}</h3>
