@@ -52,7 +52,12 @@ export type Dict = {
     title: string;
     kicker: string;
     note: string;
-    items: { name: string; scope: string }[];
+    intro: string;
+    majorTitle: string;
+    majorNote: string;
+    tableHeaders: { num: string; project: string; location: string };
+    rows: { name: string; location: string }[];
+    cta: { title: string; body: string; primary: string; secondary: string };
   };
   reliability: { title: string[]; body: string };
   ctaBlock: { title: string; body: string; primary: string; secondary: string };
