@@ -1,6 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { preferredLang } from "@/lib/lang";
+import logoLight from "@/assets/eva-taqa-logo-light.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
