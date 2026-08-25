@@ -3,6 +3,7 @@ import { Link } from "@/components/site/link";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import type { Lang } from "@/content/site";
+import logoLight from "@/assets/eva-taqa-logo-light.png.asset.json";
 import { dictFor, storeLang, swapLangPath } from "@/lib/lang";
 
 export function Header({ lang }: { lang: Lang }) {

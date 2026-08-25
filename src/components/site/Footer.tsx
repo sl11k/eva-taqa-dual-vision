@@ -1,6 +1,7 @@
 import { Link } from "@/components/site/link";
 import { CONTACT, type Lang } from "@/content/site";
 import { dictFor } from "@/lib/lang";
+import logoLight from "@/assets/eva-taqa-logo-light.png.asset.json";
 
 export function Footer({ lang }: { lang: Lang }) {
   const t = dictFor(lang);
