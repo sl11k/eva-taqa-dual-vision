@@ -44,12 +44,12 @@ export function PageHero({
   intro?: string | undefined;
 }) {
   return (
-    <section className="relative overflow-hidden border-b border-hairline pt-40 pb-20">
-      <div className="pointer-events-none absolute inset-0 grid-overlay opacity-60" />
-      <div className="pointer-events-none absolute -top-40 start-1/4 h-96 w-96 rounded-full bg-primary/20 blur-[140px]" />
+    <section className="relative overflow-hidden border-b border-hairline bg-navy/40 pt-40 pb-20">
+      <div className="pointer-events-none absolute inset-0 dot-grid opacity-[0.14]" />
+      <div className="pointer-events-none absolute inset-y-0 end-0 w-1/3 bg-gradient-to-l from-orange/10 to-transparent" />
       <div className="relative mx-auto max-w-[1280px] px-6">
         <Kicker>{kicker}</Kicker>
-        <h1 className={`mt-6 max-w-4xl font-extrabold ${lang === "ar" ? "text-4xl md:text-6xl" : "text-5xl md:text-7xl"}`}>
+        <h1 className={`brand-caps mt-6 max-w-4xl ${lang === "ar" ? "text-4xl md:text-6xl" : "text-5xl md:text-7xl"}`}>
           {title}
         </h1>
         {intro && <p className="mt-6 max-w-2xl text-lg text-muted-foreground">{intro}</p>}
