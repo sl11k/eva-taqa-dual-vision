@@ -1,6 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { preferredLang } from "@/lib/lang";
+import logoLight from "@/assets/eva-taqa-logo-light.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -34,7 +35,8 @@ function LanguageGate() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center gap-6 bg-background px-6 text-center">
-      <h1 className="text-sm font-extrabold tracking-[0.35em] uppercase">EVA TAQA</h1>
+      <h1 className="sr-only">EVA TAQA</h1>
+      <img src={logoLight.url} alt="EVA TAQA logo" width={1256} height={310} className="h-12 w-auto" />
       <div className="h-px w-24 accent-rule" />
       <p className="text-xs tracking-[0.2em] text-muted-foreground">POWER &amp; ENERGY SOLUTIONS</p>
       <noscript>

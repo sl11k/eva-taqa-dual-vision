@@ -3,6 +3,7 @@ import { Link } from "@/components/site/link";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import type { Lang } from "@/content/site";
+import logoLight from "@/assets/eva-taqa-logo-light.png.asset.json";
 import { dictFor, storeLang, swapLangPath } from "@/lib/lang";
 
 export function Header({ lang }: { lang: Lang }) {
@@ -36,17 +37,14 @@ export function Header({ lang }: { lang: Lang }) {
       }`}
     >
       <div className="mx-auto flex max-w-[1280px] items-center gap-6 px-6">
-        <Link to={`/${lang}`} className="group flex items-center gap-3">
-          <span className="relative flex h-8 w-8 items-center justify-center">
-            <span className="absolute inset-0 rotate-45 border border-primary/60" />
-            <span className="absolute inset-[6px] rotate-45 accent-rule opacity-80" />
-          </span>
-          <span className="flex flex-col leading-none">
-            <span className="text-sm font-extrabold tracking-[0.22em] uppercase">EVA TAQA</span>
-            <span className="mt-1 text-[10px] tracking-[0.18em] text-muted-foreground">
-              {lang === "en" ? "POWER & ENERGY" : "الطاقة والكهرباء"}
-            </span>
-          </span>
+        <Link to={`/${lang}`} className="group flex items-center" aria-label="EVA TAQA">
+          <img
+            src={logoLight.url}
+            alt={lang === "en" ? "EVA TAQA logo" : "شعار ايفا طاقة"}
+            width={1256}
+            height={310}
+            className="h-9 w-auto md:h-10"
+          />
         </Link>
 
         <nav className="mx-auto hidden items-center gap-8 lg:flex">
