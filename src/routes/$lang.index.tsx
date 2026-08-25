@@ -6,7 +6,8 @@ import { dictFor } from "@/lib/lang";
 import { pageHead } from "@/lib/seo";
 import { Link } from "@/components/site/link";
 import { CtaBand, Kicker, Section, SectionTitle } from "@/components/site/Section";
-import heroImg from "@/assets/hero-grid.jpg";
+import heroImg from "@/assets/brand-hero.jpg";
+import gridImg from "@/assets/hero-grid.jpg";
 import riyadhImg from "@/assets/riyadh.jpg";
 import controlImg from "@/assets/control-room.jpg";
 import solarImg from "@/assets/solar.jpg";
@@ -303,7 +304,7 @@ function Home() {
             <article key={`${row.name}-${i}`} className="lift group relative overflow-hidden border border-hairline bg-surface">
               <div className="relative h-52 overflow-hidden">
                 <img
-                  src={i === 2 ? solarImg : i === 1 ? heroImg : riyadhImg}
+                  src={i === 2 ? solarImg : i === 1 ? gridImg : riyadhImg}
                   alt={row.name}
                   loading="lazy"
                   width={1600}
