@@ -11,6 +11,14 @@ export function Footer({ lang }: { lang: Lang }) {
     <footer className="border-t border-hairline bg-surface/40">
       <div className="mx-auto grid max-w-[1280px] gap-12 px-6 py-16 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
+          <img
+            src={logoLight.url}
+            alt={lang === "en" ? "EVA TAQA logo" : "شعار ايفا طاقة"}
+            width={1256}
+            height={310}
+            loading="lazy"
+            className="mb-7 h-10 w-auto"
+          />
           <p className="text-xl font-bold text-gradient max-w-sm">{t.footer.statement}</p>
           <p className="mt-4 max-w-sm text-sm text-muted-foreground">{t.footer.blurb}</p>
           <div className="mt-6 h-px w-24 accent-rule" />
