@@ -103,6 +103,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "Organization",
           name: "EVA TAQA",
+          logo: "https://eva.trendify.sa/__l5e/assets-v1/c895a309-6701-4f34-a215-c83cf23bc7d9/eva-taqa-logo.png",
           email: "sales@evataqa.com",
           telephone: "+966544967553",
           address: {
