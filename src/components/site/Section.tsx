@@ -22,14 +22,14 @@ export function Section({
 export function Kicker({ children }: { children: ReactNode }) {
   return (
     <div className="flex items-center gap-3">
-      <span className="h-px w-10 accent-rule" />
-      <span className="text-[11px] font-bold tracking-[0.28em] uppercase text-cyan">{children}</span>
+      <span className="h-[3px] w-8 bg-orange" />
+      <span className="text-[11px] font-bold tracking-[0.28em] uppercase text-orange">{children}</span>
     </div>
   );
 }
 
 export function SectionTitle({ children }: { children: ReactNode }) {
-  return <h2 className="mt-6 max-w-3xl text-4xl font-extrabold md:text-5xl">{children}</h2>;
+  return <h2 className="brand-caps mt-6 max-w-3xl text-4xl md:text-5xl">{children}</h2>;
 }
 
 export function PageHero({
