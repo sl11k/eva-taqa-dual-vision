@@ -67,13 +67,13 @@ export function Header({ lang }: { lang: Lang }) {
             onClick={() => storeLang(other)}
             resetScroll={false}
             aria-label={other === "ar" ? "التبديل إلى العربية" : "Switch to English"}
-            className="rounded-xs border border-border px-3 py-2 text-xs font-semibold tracking-widest text-foreground/80 transition-colors hover:border-cyan/50 hover:text-foreground"
+            className="rounded-xs border border-border px-3 py-2 text-xs font-semibold tracking-widest text-foreground/80 transition-colors hover:border-orange hover:text-foreground"
           >
             {t.otherLangLabel}
           </Link>
           <Link
             to={`/${lang}/contact`}
-            className="hidden rounded-xs bg-primary px-5 py-2.5 text-xs font-bold tracking-wide text-primary-foreground transition-shadow hover:shadow-[var(--glow-primary)] sm:inline-block"
+            className="hidden rounded-none bg-orange px-5 py-2.5 text-xs font-bold tracking-wide text-primary-foreground transition-opacity hover:opacity-90 sm:inline-block"
           >
             {t.cta}
           </Link>
@@ -103,7 +103,7 @@ export function Header({ lang }: { lang: Lang }) {
             ))}
             <Link
               to={`/${lang}/contact`}
-              className="mt-3 rounded-xs bg-primary px-5 py-3 text-center text-xs font-bold text-primary-foreground"
+              className="mt-3 rounded-none bg-orange px-5 py-3 text-center text-xs font-bold text-primary-foreground"
             >
               {t.cta}
             </Link>

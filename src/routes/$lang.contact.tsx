@@ -68,11 +68,11 @@ function Contact() {
             </div>
             <button
               type="submit"
-              className="mt-8 rounded-xs bg-primary px-8 py-3.5 text-sm font-bold text-primary-foreground transition-shadow hover:shadow-[var(--glow-primary)]"
+              className="mt-8 rounded-none bg-orange px-8 py-3.5 text-sm font-bold text-primary-foreground transition-opacity hover:opacity-90"
             >
               {f.submit}
             </button>
-            {sent && <p className="mt-5 text-sm text-cyan">{f.success}</p>}
+            {sent && <p className="mt-5 text-sm text-orange">{f.success}</p>}
           </form>
 
           <aside className="space-y-8">
@@ -80,25 +80,25 @@ function Contact() {
               <h2 className="text-xs font-bold tracking-[0.2em] uppercase text-muted-foreground">EVA TAQA</h2>
               <ul className="mt-6 space-y-6 text-sm">
                 <li className="flex gap-4">
-                  <Mail className="mt-0.5 size-4 shrink-0 text-cyan" />
+                  <Mail className="mt-0.5 size-4 shrink-0 text-orange" />
                   <div>
                     <p className="text-xs text-muted-foreground">{t.contact.infoLabels.email}</p>
-                    <a href={`mailto:${CONTACT.email}`} className="ltr-inline mt-1 hover:text-cyan">
+                    <a href={`mailto:${CONTACT.email}`} className="ltr-inline mt-1 hover:text-orange">
                       {CONTACT.email}
                     </a>
                   </div>
                 </li>
                 <li className="flex gap-4">
-                  <Phone className="mt-0.5 size-4 shrink-0 text-cyan" />
+                  <Phone className="mt-0.5 size-4 shrink-0 text-orange" />
                   <div>
                     <p className="text-xs text-muted-foreground">{t.contact.infoLabels.phone}</p>
-                    <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="ltr-inline mt-1 hover:text-cyan">
+                    <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="ltr-inline mt-1 hover:text-orange">
                       {CONTACT.phone}
                     </a>
                   </div>
                 </li>
                 <li className="flex gap-4">
-                  <MapPin className="mt-0.5 size-4 shrink-0 text-cyan" />
+                  <MapPin className="mt-0.5 size-4 shrink-0 text-orange" />
                   <div>
                     <p className="text-xs text-muted-foreground">{t.contact.infoLabels.address}</p>
                     <address className="mt-1 not-italic leading-relaxed text-muted-foreground">
@@ -113,7 +113,7 @@ function Contact() {
               </ul>
             </div>
             <div className="panel flow-line p-8">
-              <p className="text-lg font-bold text-gradient">{t.footer.statement}</p>
+              <p className="text-lg font-bold text-orange">{t.footer.statement}</p>
             </div>
           </aside>
         </div>
