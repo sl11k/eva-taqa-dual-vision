@@ -36,7 +36,7 @@ function About() {
           <div>
             <p className="text-muted-foreground">{t.about.body[1]}</p>
             <p
-              className="mt-10 text-2xl font-bold text-gradient"
+              className="mt-10 text-2xl font-bold text-orange"
               lang={rtl ? "ar" : undefined}
             >
               {rtl ? "نطمح بأن نكون الأولى في الشرق الأوسط" : "We aspire to be the best in the Middle East."}
@@ -60,7 +60,7 @@ function About() {
           {t.vmso.map((b) => (
             <article key={b.key} className="group bg-background p-10 transition-colors hover:bg-surface">
               <div className="flex items-baseline gap-4">
-                <span className="text-xs font-bold tracking-widest text-cyan/70">{b.label}</span>
+                <span className="text-xs font-bold tracking-widest text-orange/70">{b.label}</span>
                 <h3 className="text-2xl font-extrabold">{b.heading}</h3>
               </div>
               <div className="mt-4 h-px w-16 accent-rule opacity-60 transition-all duration-500 group-hover:w-28" />
@@ -69,7 +69,7 @@ function About() {
                 <ul className="mt-6 space-y-3">
                   {b.items.map((i) => (
                     <li key={i} className="flex gap-3 text-sm text-muted-foreground">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-cyan/70" />
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-orange" />
                       <span>{i}</span>
                     </li>
                   ))}

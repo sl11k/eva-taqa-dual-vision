@@ -63,13 +63,13 @@ function Projects() {
             <div className="flex flex-wrap gap-3">
               <Link
                 to={`/${lang}/contact`}
-                className="rounded-xs bg-primary px-7 py-3.5 text-sm font-bold text-primary-foreground transition-shadow hover:shadow-[var(--glow-primary)]"
+                className="rounded-none bg-orange px-7 py-3.5 text-sm font-bold text-primary-foreground transition-opacity hover:opacity-90"
               >
                 {t.projects.cta.primary}
               </Link>
               <a
                 href={`mailto:${CONTACT.email}`}
-                className="rounded-xs border border-border px-7 py-3.5 text-sm font-bold transition-colors hover:border-cyan/60"
+                className="rounded-xs border border-border px-7 py-3.5 text-sm font-bold transition-colors hover:border-orange"
               >
                 {t.projects.cta.secondary}
               </a>

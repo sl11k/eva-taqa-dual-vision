@@ -22,14 +22,14 @@ export function Section({
 export function Kicker({ children }: { children: ReactNode }) {
   return (
     <div className="flex items-center gap-3">
-      <span className="h-px w-10 accent-rule" />
-      <span className="text-[11px] font-bold tracking-[0.28em] uppercase text-cyan">{children}</span>
+      <span className="h-[3px] w-8 bg-orange" />
+      <span className="text-[11px] font-bold tracking-[0.28em] uppercase text-orange">{children}</span>
     </div>
   );
 }
 
 export function SectionTitle({ children }: { children: ReactNode }) {
-  return <h2 className="mt-6 max-w-3xl text-4xl font-extrabold md:text-5xl">{children}</h2>;
+  return <h2 className="brand-caps mt-6 max-w-3xl text-4xl md:text-5xl">{children}</h2>;
 }
 
 export function PageHero({
@@ -44,12 +44,12 @@ export function PageHero({
   intro?: string | undefined;
 }) {
   return (
-    <section className="relative overflow-hidden border-b border-hairline pt-40 pb-20">
-      <div className="pointer-events-none absolute inset-0 grid-overlay opacity-60" />
-      <div className="pointer-events-none absolute -top-40 start-1/4 h-96 w-96 rounded-full bg-primary/20 blur-[140px]" />
+    <section className="relative overflow-hidden border-b border-hairline bg-navy/40 pt-40 pb-20">
+      <div className="pointer-events-none absolute inset-0 dot-grid opacity-[0.14]" />
+      <div className="pointer-events-none absolute inset-y-0 end-0 w-1/3 bg-gradient-to-l from-orange/10 to-transparent" />
       <div className="relative mx-auto max-w-[1280px] px-6">
         <Kicker>{kicker}</Kicker>
-        <h1 className={`mt-6 max-w-4xl font-extrabold ${lang === "ar" ? "text-4xl md:text-6xl" : "text-5xl md:text-7xl"}`}>
+        <h1 className={`brand-caps mt-6 max-w-4xl ${lang === "ar" ? "text-4xl md:text-6xl" : "text-5xl md:text-7xl"}`}>
           {title}
         </h1>
         {intro && <p className="mt-6 max-w-2xl text-lg text-muted-foreground">{intro}</p>}
@@ -62,24 +62,24 @@ export function CtaBand({ lang }: { lang: Lang }) {
   const t = dictFor(lang);
   return (
     <Section className="relative overflow-hidden">
-      <div className="panel relative overflow-hidden px-8 py-16 md:px-16 md:py-20">
-        <div className="pointer-events-none absolute inset-0 grid-overlay opacity-40" />
-        <div className="pointer-events-none absolute -bottom-32 end-0 h-80 w-80 rounded-full bg-cyan/15 blur-[120px]" />
+      <div className="relative overflow-hidden border border-hairline bg-navy/60 px-8 py-16 md:px-16 md:py-20">
+        <div className="pointer-events-none absolute inset-0 dot-grid opacity-[0.14]" />
+        <div className="pointer-events-none absolute inset-y-0 start-0 w-1.5 bg-orange" />
         <div className="relative flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
-            <h2 className="text-3xl font-extrabold md:text-4xl">{t.ctaBlock.title}</h2>
+            <h2 className="brand-caps text-3xl md:text-4xl">{t.ctaBlock.title}</h2>
             <p className="mt-5 text-muted-foreground">{t.ctaBlock.body}</p>
           </div>
           <div className="flex flex-wrap gap-3">
             <Link
               to={`/${lang}/contact`}
-              className="rounded-xs bg-primary px-7 py-3.5 text-sm font-bold text-primary-foreground transition-shadow hover:shadow-[var(--glow-primary)]"
+              className="rounded-none bg-orange px-7 py-3.5 text-sm font-bold text-primary-foreground transition-opacity hover:opacity-90"
             >
               {t.ctaBlock.primary}
             </Link>
             <a
               href={`mailto:${CONTACT.email}`}
-              className="rounded-xs border border-border px-7 py-3.5 text-sm font-bold transition-colors hover:border-cyan/60"
+              className="rounded-none border border-border px-7 py-3.5 text-sm font-bold transition-colors hover:border-orange"
             >
               {t.ctaBlock.secondary}
             </a>

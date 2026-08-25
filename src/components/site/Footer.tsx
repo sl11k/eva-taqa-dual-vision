@@ -19,7 +19,7 @@ export function Footer({ lang }: { lang: Lang }) {
             loading="lazy"
             className="mb-7 h-10 w-auto"
           />
-          <p className="text-xl font-bold text-gradient max-w-sm">{t.footer.statement}</p>
+          <p className="text-xl font-bold text-orange max-w-sm">{t.footer.statement}</p>
           <p className="mt-4 max-w-sm text-sm text-muted-foreground">{t.footer.blurb}</p>
           <div className="mt-6 h-px w-24 accent-rule" />
         </div>

@@ -64,7 +64,7 @@ function ServiceDetail() {
             <span className="opacity-50">/</span>
             <span className="text-foreground">{s.title}</span>
           </nav>
-          <span className="mt-10 block text-xs font-bold tracking-widest text-cyan/80">{s.num}</span>
+          <span className="mt-10 block text-xs font-bold tracking-widest text-orange/80">{s.num}</span>
           <h1 className={`mt-4 max-w-4xl font-extrabold ${lang === "ar" ? "text-4xl md:text-5xl" : "text-5xl md:text-6xl"}`}>
             {s.title}
           </h1>
@@ -89,7 +89,7 @@ function ServiceDetail() {
       <Section>
         <div className="flex flex-wrap items-end justify-between gap-6">
           <h2 className="text-2xl font-extrabold">{t.services.title}</h2>
-          <Link to={`/${lang}/services`} className="inline-flex items-center gap-2 text-sm font-bold text-cyan">
+          <Link to={`/${lang}/services`} className="inline-flex items-center gap-2 text-sm font-bold text-orange">
             {t.services.back}
             <Arrow className="size-4" />
           </Link>
@@ -97,7 +97,7 @@ function ServiceDetail() {
         <div className="mt-10 grid gap-px bg-hairline md:grid-cols-3">
           {others.map((o) => (
             <Link key={o} to={`/${lang}/services/${o}`} className="bg-background p-8 transition-colors hover:bg-surface">
-              <span className="text-xs font-bold tracking-widest text-cyan/70">{t.services.items[o].num}</span>
+              <span className="text-xs font-bold tracking-widest text-orange/70">{t.services.items[o].num}</span>
               <h3 className="mt-4 text-lg font-bold">{t.services.items[o].title}</h3>
             </Link>
           ))}

@@ -1,13 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, ArrowLeft, ShieldCheck } from "lucide-react";
+import { ArrowRight, ArrowLeft } from "lucide-react";
 import { SERVICE_SLUGS, isLang, type Lang } from "@/content/site";
+import { brandFor } from "@/content/brand";
 import { dictFor } from "@/lib/lang";
 import { pageHead } from "@/lib/seo";
 import { Link } from "@/components/site/link";
 import { CtaBand, Kicker, Section, SectionTitle } from "@/components/site/Section";
-import heroImg from "@/assets/hero-grid.jpg";
+import heroImg from "@/assets/brand-hero.jpg";
+import gridImg from "@/assets/hero-grid.jpg";
 import riyadhImg from "@/assets/riyadh.jpg";
 import controlImg from "@/assets/control-room.jpg";
+import solarImg from "@/assets/solar.jpg";
+import teamImg from "@/assets/team-site.jpg";
 
 export const Route = createFileRoute("/$lang/")({
   head: ({ params }) => pageHead(isLang(params.lang) ? params.lang : "en", "home", ""),
@@ -17,63 +21,58 @@ export const Route = createFileRoute("/$lang/")({
 function Home() {
   const { lang } = Route.useParams() as { lang: Lang };
   const t = dictFor(lang);
+  const b = brandFor(lang);
   const rtl = lang === "ar";
   const Arrow = rtl ? ArrowLeft : ArrowRight;
 
   return (
     <>
-      {/* HERO */}
-      <section className="relative min-h-[92vh] overflow-hidden">
+      {/* ── HERO — brand book cover ─────────────────────────── */}
+      <section className="relative min-h-[88vh] overflow-hidden bg-background">
         <img
           src={heroImg}
           alt={rtl ? "محطة كهرباء وأبراج نقل الطاقة ليلاً" : "High-voltage substation and transmission towers at night"}
           width={1920}
           height={1088}
-          className="absolute inset-0 h-full w-full object-cover opacity-70"
+          className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 hero-veil" />
-        <div className="absolute inset-0 grid-overlay opacity-70" />
-        <div className="absolute inset-x-0 top-1/3 h-px flow-line" />
+        
+        <div className="absolute inset-0 diagonal-band opacity-90" />
+        <div className="absolute inset-0 dot-grid opacity-[0.16]" />
 
-        <div className="relative mx-auto flex min-h-[92vh] max-w-[1280px] flex-col justify-center px-6 pt-32 pb-20">
+        <div className="relative mx-auto flex min-h-[88vh] max-w-[1280px] flex-col justify-center px-6 pt-32 pb-24">
           <div className="reveal">
             <Kicker>{t.hero.eyebrow}</Kicker>
           </div>
           <h1
-            className={`mt-8 reveal font-extrabold ${
-              rtl ? "max-w-4xl text-4xl leading-[1.35] sm:text-5xl md:text-6xl" : "max-w-4xl text-5xl sm:text-6xl md:text-7xl"
-            }`}
+            className={`brand-caps mt-8 reveal ${rtl ? "max-w-4xl text-4xl sm:text-5xl md:text-6xl" : "max-w-4xl text-5xl sm:text-6xl md:text-[5.5rem]"}`}
             style={{ animationDelay: "80ms" }}
           >
             {t.hero.headline[0]}
             <br />
-            <span className="text-gradient">{t.hero.headline[1]}</span>
+            <span className="text-orange">{t.hero.headline[1]}</span>
           </h1>
-          <p
-            className={`mt-8 reveal text-muted-foreground ${rtl ? "max-w-2xl text-lg" : "max-w-xl text-lg"}`}
-            style={{ animationDelay: "160ms" }}
-          >
+          <div className="mt-8 reveal brand-rule" style={{ animationDelay: "140ms" }} />
+          <p className="mt-8 reveal max-w-xl text-lg text-muted-foreground" style={{ animationDelay: "180ms" }}>
             {t.hero.desc}
           </p>
           <p
-            className="mt-6 reveal text-base text-cyan/90"
-            style={{ animationDelay: "220ms", fontFamily: "var(--font-arabic)" }}
-            lang="ar"
-            dir="rtl"
+            className="mt-6 reveal text-xs font-bold tracking-[0.34em] text-orange uppercase"
+            style={{ animationDelay: "230ms" }}
           >
-            {t.hero.tagline}
+            {b.signature}
           </p>
 
-          <div className="mt-12 reveal flex flex-wrap items-center gap-4" style={{ animationDelay: "280ms" }}>
+          <div className="mt-12 reveal flex flex-wrap items-center gap-4" style={{ animationDelay: "300ms" }}>
             <Link
               to={`/${lang}/services`}
-              className="rounded-xs bg-primary px-8 py-4 text-sm font-bold text-primary-foreground transition-shadow hover:shadow-[var(--glow-primary)]"
+              className="rounded-none bg-orange px-8 py-4 text-sm font-bold text-primary-foreground transition-opacity hover:opacity-90"
             >
               {t.hero.primary}
             </Link>
             <Link
               to={`/${lang}/contact`}
-              className="rounded-xs border border-border px-8 py-4 text-sm font-bold backdrop-blur-sm transition-colors hover:border-cyan/60"
+              className="rounded-none border border-border px-8 py-4 text-sm font-bold transition-colors hover:border-orange"
             >
               {t.hero.secondary}
             </Link>
@@ -86,78 +85,90 @@ function Home() {
             </Link>
           </div>
         </div>
+
+        <div className="absolute inset-x-0 bottom-0 border-t border-hairline bg-navy/70 backdrop-blur-sm">
+          <div className="mx-auto flex max-w-[1280px] flex-wrap items-center gap-x-10 gap-y-2 px-6 py-4 text-[11px] font-bold tracking-[0.24em] text-muted-foreground uppercase">
+            <span className="text-orange">{b.signature}</span>
+            <span className="hidden sm:inline">{b.signatureSub}</span>
+          </div>
+        </div>
       </section>
 
-      {/* ABOUT */}
-      <Section>
-        <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
+      {/* ── CONFIDENCE STATEMENT ────────────────────────────── */}
+      <Section className="border-b border-hairline bg-navy/40">
+        <div className="grid gap-14 lg:grid-cols-[1.3fr_1fr] lg:items-center">
           <div>
-            <Kicker>{t.about.kicker}</Kicker>
-            <SectionTitle>{t.about.title}</SectionTitle>
-            {t.about.body.map((p) => (
-              <p key={p.slice(0, 24)} className="mt-6 text-muted-foreground">
-                {p}
-              </p>
-            ))}
-            <Link
-              to={`/${lang}/about`}
-              className="group mt-10 inline-flex items-center gap-3 border-b border-cyan/40 pb-2 text-sm font-bold text-cyan"
-            >
-              {t.about.cta}
-              <Arrow className="size-4 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
-            </Link>
+            <h2 className={`brand-caps ${rtl ? "text-3xl md:text-5xl" : "text-4xl md:text-6xl"}`}>
+              {b.confidence.lines[0]}
+              <br />
+              <span className="text-orange">{b.confidence.lines[1]}</span>
+            </h2>
+            <p className="mt-8 max-w-xl text-muted-foreground">{b.confidence.body}</p>
           </div>
-          <div className="grid gap-px overflow-hidden border border-hairline bg-hairline sm:grid-cols-2">
-            {t.about.pillars.map((p) => (
-              <div key={p.title} className="bg-surface p-8 transition-colors hover:bg-surface-2">
-                <h3 className="text-base font-bold">{p.title}</h3>
-                <p className="mt-3 text-sm text-muted-foreground">{p.desc}</p>
-              </div>
-            ))}
+          <div className="border-s-2 border-orange ps-8">
+            <div className="stat-figure text-6xl md:text-7xl">{b.confidence.stat}</div>
+            <div className="mt-3 text-xs font-bold tracking-[0.3em] text-muted-foreground uppercase">
+              {b.confidence.statLabel}
+            </div>
+            <p className="mt-6 text-lg font-semibold">{b.confidence.statNote}</p>
           </div>
         </div>
       </Section>
 
-      {/* VISION / MISSION / STRATEGY / OBJECTIVES */}
-      <Section className="border-y border-hairline bg-surface/30">
-        <Kicker>{rtl ? "التوجه الاستراتيجي" : "Strategic direction"}</Kicker>
-        <SectionTitle>{rtl ? "الرؤية والمهمة والاستراتيجية والأهداف" : "Vision, Mission, Strategy & Objectives"}</SectionTitle>
-        <div className="mt-16 grid gap-px bg-hairline md:grid-cols-2">
-          {t.vmso.map((b) => (
-            <article key={b.key} className="group bg-background p-10 transition-colors hover:bg-surface">
-              <div className="flex items-baseline gap-4">
-                <span className="text-xs font-bold tracking-widest text-cyan/70">{b.label}</span>
-                <h3 className="text-2xl font-extrabold">{b.heading}</h3>
+      {/* ── WHY WE EXIST (light) ────────────────────────────── */}
+      <Section className="section-light border-b border-hairline">
+        <div className="grid gap-14 lg:grid-cols-2 lg:items-center">
+          <div>
+            <Kicker>{b.why.kicker}</Kicker>
+            <h2 className={`brand-caps mt-6 ${rtl ? "text-3xl md:text-4xl" : "text-4xl md:text-5xl"}`}>
+              {b.why.title[0]}
+              <br />
+              <span className="text-orange">{b.why.title[1]}</span>
+            </h2>
+            <p className="mt-8 max-w-xl text-muted-foreground">{b.why.body}</p>
+            <blockquote className="mt-10 border-s-2 border-orange ps-6 text-xl font-semibold">
+              “{b.why.quote}
+              <span className="text-orange">{b.why.quoteHighlight}</span>”
+            </blockquote>
+          </div>
+          <div className="relative">
+            <img
+              src={teamImg}
+              alt={rtl ? "مهندسو ايفا طاقة في غرفة لوحات كهربائية" : "EVA TAQA engineers inspecting electrical switchgear"}
+              loading="lazy"
+              width={1600}
+              height={1000}
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute inset-x-0 bottom-0 h-1.5 bg-orange" />
+          </div>
+        </div>
+      </Section>
+
+      {/* ── BY THE NUMBERS ─────────────────────────────────── */}
+      <Section className="border-b border-hairline">
+        <Kicker>{b.numbers.kicker}</Kicker>
+        <SectionTitle>{b.numbers.title}</SectionTitle>
+        <div className="mt-14 grid gap-px bg-hairline sm:grid-cols-2 lg:grid-cols-3">
+          {b.numbers.items.map((n) => (
+            <div key={n.label} className="bg-background p-10 transition-colors hover:bg-surface">
+              <div className="stat-figure text-5xl">
+                <span className="ltr-inline">{n.value}</span>
               </div>
-              <div className="mt-4 h-px w-16 accent-rule opacity-60 transition-all duration-500 group-hover:w-28" />
-              {b.body && <p className="mt-6 text-muted-foreground">{b.body}</p>}
-              {b.items && (
-                <ul className="mt-6 space-y-3">
-                  {b.items.map((i) => (
-                    <li key={i} className="flex gap-3 text-sm text-muted-foreground">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-cyan/70" />
-                      <span>{i}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </article>
+              <div className="mt-4 text-xs font-bold tracking-[0.24em] text-muted-foreground uppercase">{n.label}</div>
+            </div>
           ))}
         </div>
       </Section>
 
-      {/* SERVICES */}
-      <Section className="section-light border-y border-hairline">
-
+      {/* ── CORE SOLUTIONS (light) ─────────────────────────── */}
+      <Section className="section-light border-b border-hairline">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <Kicker>{t.services.kicker}</Kicker>
             <SectionTitle>{t.services.title}</SectionTitle>
           </div>
-          <Link
-            to={`/${lang}/services`}
-            className="group inline-flex items-center gap-2 text-sm font-bold text-cyan"
-          >
+          <Link to={`/${lang}/services`} className="group inline-flex items-center gap-2 text-sm font-bold text-orange">
             {t.services.back}
             <Arrow className="size-4 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
           </Link>
@@ -171,13 +182,10 @@ function Home() {
                 to={`/${lang}/services/${slug}`}
                 className="group relative bg-surface p-9 transition-colors hover:bg-surface-2"
               >
-                <span className="inline-flex h-9 w-9 items-center justify-center bg-orange text-xs font-bold tracking-widest text-white">
-                  {s.num}
-                </span>
-                <h3 className="mt-5 text-xl font-bold">{s.title}</h3>
+                <span className="num-plate">{s.num}</span>
+                <h3 className="brand-caps mt-6 text-lg">{s.title}</h3>
                 <p className="mt-4 text-sm text-muted-foreground">{s.desc}</p>
                 <span className="mt-7 inline-flex items-center gap-2 text-xs font-bold text-orange opacity-0 transition-opacity group-hover:opacity-100">
-
                   {t.services.detailCta}
                   <Arrow className="size-3.5" />
                 </span>
@@ -187,10 +195,62 @@ function Home() {
         </div>
       </Section>
 
-      {/* RELIABILITY */}
-      <Section className="border-y border-hairline">
+      {/* ── INDUSTRIES WE SERVE ────────────────────────────── */}
+      <Section className="border-b border-hairline bg-navy/30">
+        <Kicker>{b.industries.kicker}</Kicker>
+        <SectionTitle>{b.industries.title}</SectionTitle>
+        <div className="mt-12 flex flex-wrap gap-3">
+          {b.industries.items.map((i) => (
+            <span
+              key={i}
+              className="border border-hairline px-5 py-3 text-sm text-muted-foreground transition-colors hover:border-orange hover:text-foreground"
+            >
+              {i}
+            </span>
+          ))}
+        </div>
+      </Section>
+
+      {/* ── ENGINEERING PROCESS (light) ────────────────────── */}
+      <Section className="section-light border-b border-hairline">
+        <Kicker>{b.process.kicker}</Kicker>
+        <SectionTitle>{b.process.title}</SectionTitle>
+        <p className="mt-6 max-w-2xl text-muted-foreground">{b.process.body}</p>
+        <div className="mt-14 grid gap-px bg-hairline sm:grid-cols-2 lg:grid-cols-3">
+          {b.process.steps.map((s) => (
+            <div key={s.num} className="bg-surface p-9">
+              <span className="num-plate">{s.num}</span>
+              <h3 className="brand-caps mt-6 text-base">{s.title}</h3>
+              <p className="mt-3 text-sm text-muted-foreground">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* ── CORE VALUES ────────────────────────────────────── */}
+      <Section className="border-b border-hairline">
+        <Kicker>{b.values.kicker}</Kicker>
+        <SectionTitle>{b.values.title}</SectionTitle>
+        <div className="mt-14 grid gap-px bg-hairline sm:grid-cols-2 lg:grid-cols-3">
+          {b.values.items.map((v, i) => (
+            <div key={v.title} className="group bg-background p-9 transition-colors hover:bg-surface">
+              <div className="flex items-baseline gap-4">
+                <span className="text-xs font-bold tracking-[0.2em] text-orange">
+                  <span className="ltr-inline">{String(i + 1).padStart(2, "0")}</span>
+                </span>
+                <h3 className="brand-caps text-lg">{v.title}</h3>
+              </div>
+              <div className="mt-4 h-px w-14 bg-orange/60 transition-all duration-500 group-hover:w-24" />
+              <p className="mt-5 text-sm text-muted-foreground">{v.desc}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* ── HSE + RELIABILITY ──────────────────────────────── */}
+      <Section className="border-b border-hairline bg-navy/40">
         <div className="grid gap-14 lg:grid-cols-2 lg:items-center">
-          <div className="relative overflow-hidden border border-hairline">
+          <div className="relative">
             <img
               src={controlImg}
               alt={rtl ? "غرفة تحكم كهربائية حديثة" : "Modern electrical control room"}
@@ -199,30 +259,52 @@ function Home() {
               height={1000}
               className="h-full w-full object-cover"
             />
-            <div className="pointer-events-none absolute inset-0 bg-background/30" />
+            <div className="absolute inset-y-0 start-0 w-1.5 bg-orange" />
           </div>
           <div>
-            <ShieldCheck className="size-8 text-cyan" />
-            <h2 className="mt-8 text-4xl font-extrabold md:text-5xl">
-              {t.reliability.title[0]}
-              <br />
-              <span className="text-gradient">{t.reliability.title[1]}</span>
-            </h2>
-            <p className="mt-8 text-muted-foreground">{t.reliability.body}</p>
+            <Kicker>{b.hse.kicker}</Kicker>
+            <h2 className={`brand-caps mt-6 ${rtl ? "text-3xl md:text-4xl" : "text-4xl md:text-5xl"}`}>{b.hse.title}</h2>
+            <p className="mt-6 text-muted-foreground">{b.hse.body}</p>
+            <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+              {b.hse.items.map((i) => (
+                <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
+                  <span className="mt-1.5 h-2 w-2 shrink-0 bg-orange" />
+                  <span>{i}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-10 text-sm text-muted-foreground">{t.reliability.body}</p>
           </div>
         </div>
       </Section>
 
-      {/* PROJECTS */}
+      {/* ── PARTNERS (light) ───────────────────────────────── */}
       <Section className="section-light border-b border-hairline">
+        <Kicker>{b.partners.kicker}</Kicker>
+        <SectionTitle>{b.partners.title}</SectionTitle>
+        <p className="mt-6 max-w-2xl text-muted-foreground">{b.partners.body}</p>
+        <div className="mt-12 grid gap-px bg-hairline sm:grid-cols-3 lg:grid-cols-3">
+          {b.partners.items.map((p) => (
+            <div
+              key={p}
+              className="flex h-24 items-center justify-center bg-surface px-4 text-center text-sm font-bold tracking-[0.2em] text-foreground/70 transition-colors hover:text-orange"
+            >
+              <span className="ltr-inline">{p}</span>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* ── PROJECTS ───────────────────────────────────────── */}
+      <Section className="border-b border-hairline">
         <Kicker>{t.projects.kicker}</Kicker>
         <SectionTitle>{t.projects.title}</SectionTitle>
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {t.projects.rows.slice(0, 3).map((row, i) => (
-            <article key={row.name} className="lift group relative overflow-hidden border border-hairline bg-surface">
+            <article key={`${row.name}-${i}`} className="lift group relative overflow-hidden border border-hairline bg-surface">
               <div className="relative h-52 overflow-hidden">
                 <img
-                  src={i === 2 ? controlImg : i === 1 ? heroImg : riyadhImg}
+                  src={i === 2 ? solarImg : i === 1 ? gridImg : riyadhImg}
                   alt={row.name}
                   loading="lazy"
                   width={1600}
@@ -230,7 +312,6 @@ function Home() {
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-x-0 bottom-0 h-1 bg-orange" />
-
               </div>
               <div className="p-7">
                 <h3 className="text-lg font-bold">{row.name}</h3>
@@ -239,7 +320,48 @@ function Home() {
             </article>
           ))}
         </div>
-        <p className="mt-8 text-xs text-muted-foreground">{t.projects.note}</p>
+        <Link
+          to={`/${lang}/projects`}
+          className="group mt-10 inline-flex items-center gap-2 border-b border-orange/50 pb-2 text-sm font-bold text-orange"
+        >
+          {t.projects.title}
+          <Arrow className="size-4 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
+        </Link>
+      </Section>
+
+      {/* ── VISION 2030 ────────────────────────────────────── */}
+      <Section className="relative overflow-hidden border-b border-hairline">
+        <img
+          src={riyadhImg}
+          alt={rtl ? "أفق مدينة الرياض" : "Riyadh skyline"}
+          loading="lazy"
+          width={1600}
+          height={1000}
+          className="absolute inset-0 h-full w-full object-cover opacity-25"
+        />
+        <div className="absolute inset-0 diagonal-band" />
+        <div className="relative">
+          <Kicker>{b.vision2030.kicker}</Kicker>
+          <h2 className={`brand-caps mt-6 max-w-3xl ${rtl ? "text-3xl md:text-4xl" : "text-4xl md:text-5xl"}`}>
+            {b.vision2030.title}
+          </h2>
+          <p className="mt-6 max-w-2xl text-muted-foreground">{b.vision2030.body}</p>
+          <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {b.vision2030.items.map((i) => (
+              <li key={i} className="border-t-2 border-orange pt-4 text-sm font-semibold">
+                {i}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Section>
+
+      {/* ── COMMITMENT ─────────────────────────────────────── */}
+      <Section className="border-b border-hairline bg-navy/50 text-center">
+        <p className="brand-caps text-2xl md:text-3xl">{b.commitment.line1}</p>
+        <p className="brand-caps mt-2 text-2xl text-orange md:text-3xl">{b.commitment.line2}</p>
+        <div className="mx-auto mt-8 brand-rule" />
+        <p className="mt-8 text-lg text-muted-foreground">{b.commitment.line3}</p>
       </Section>
 
       <CtaBand lang={lang} />
