@@ -31,7 +31,7 @@ function Contact() {
   }
 
   const fieldClass =
-    "w-full border border-input bg-background/60 px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-cyan/60";
+    "w-full border border-input bg-background/60 px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-orange";
 
   return (
     <>
