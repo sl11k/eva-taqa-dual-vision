@@ -64,10 +64,13 @@
   --popover: oklch(0.196 0.037 250);
   --popover-foreground: oklch(0.97 0.005 240);
 
-  --primary: oklch(0.601 0.211 256);          /* #087CFF electric blue */
-  --primary-foreground: oklch(0.99 0 0);
-  --cyan: oklch(0.812 0.135 213);             /* #19D3FF */
+  --primary: oklch(0.7 0.17 48);              /* #F07A1E brand orange */
+  --primary-foreground: oklch(0.16 0.035 250);
+  --cyan: oklch(0.79 0.13 62);                /* warm amber accent */
   --orange: oklch(0.7 0.17 48);               /* #F07A1E brand orange */
+  --navy: oklch(0.24 0.045 250);
+  --steel: oklch(0.62 0.06 245);
+
 
 
   --secondary: oklch(0.26 0.04 250);
