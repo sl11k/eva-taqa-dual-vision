@@ -309,9 +309,10 @@
     inset: 0;
     background: linear-gradient(
       104deg,
-      var(--navy) 0%,
-      var(--navy) 44%,
-      transparent 62%
+      color-mix(in oklab, var(--background) 94%, transparent) 0%,
+      color-mix(in oklab, var(--background) 88%, transparent) 38%,
+      color-mix(in oklab, var(--background) 20%, transparent) 58%,
+      transparent 78%
     );
   }
 }

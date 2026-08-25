@@ -27,19 +27,19 @@ function Home() {
   return (
     <>
       {/* ── HERO — brand book cover ─────────────────────────── */}
-      <section className="relative min-h-[94vh] overflow-hidden bg-background">
+      <section className="relative min-h-[88vh] overflow-hidden bg-background">
         <img
           src={heroImg}
           alt={rtl ? "محطة كهرباء وأبراج نقل الطاقة ليلاً" : "High-voltage substation and transmission towers at night"}
           width={1920}
           height={1088}
-          className="absolute inset-0 h-full w-full object-cover opacity-55"
+          className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 hero-veil" />
+        
         <div className="absolute inset-0 diagonal-band opacity-90" />
         <div className="absolute inset-0 dot-grid opacity-[0.16]" />
 
-        <div className="relative mx-auto flex min-h-[94vh] max-w-[1280px] flex-col justify-center px-6 pt-32 pb-24">
+        <div className="relative mx-auto flex min-h-[88vh] max-w-[1280px] flex-col justify-center px-6 pt-32 pb-24">
           <div className="reveal">
             <Kicker>{t.hero.eyebrow}</Kicker>
           </div>
