@@ -53,6 +53,24 @@ function About() {
         </div>
       </Section>
 
+      <Section className="border-b border-hairline">
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.4fr]">
+          <div>
+            <Kicker>{t.ceo.kicker}</Kicker>
+            <SectionTitle>{t.ceo.title}</SectionTitle>
+            <div className="mt-6 h-px w-20 accent-rule" />
+            <p className="mt-6 text-xs font-bold tracking-[0.24em] text-muted-foreground uppercase">{t.ceo.role}</p>
+          </div>
+          <div className="border-s-2 border-orange ps-8">
+            {t.ceo.body.map((p, i) => (
+              <p key={i} className={`text-muted-foreground ${i === 0 ? "text-lg text-foreground" : "mt-6"}`}>
+                {p}
+              </p>
+            ))}
+          </div>
+        </div>
+      </Section>
+
       <Section className="border-y border-hairline bg-surface/30">
         <Kicker>{rtl ? "التوجه الاستراتيجي" : "Strategic direction"}</Kicker>
         <SectionTitle>{rtl ? "الرؤية والمهمة والاستراتيجية والأهداف" : "Vision, Mission, Strategy & Objectives"}</SectionTitle>
