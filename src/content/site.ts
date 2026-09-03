@@ -59,6 +59,7 @@ export type Dict = {
     rows: { name: string; location: string }[];
     cta: { title: string; body: string; primary: string; secondary: string };
   };
+  ceo: { kicker: string; title: string; role: string; body: string[] };
   reliability: { title: string[]; body: string };
   ctaBlock: { title: string; body: string; primary: string; secondary: string };
   contact: {
@@ -237,19 +238,43 @@ export const en: Dict = {
       "These projects highlight EVA TAQA’s delivery of high-reliability electrical infrastructure — from government facilities to national mobility projects and large-scale industrial clients.",
     tableHeaders: { num: "#", project: "Project / Client", location: "Location" },
     rows: [
-      { name: "Saline Water Conversion Corporation project", location: "Shuqaiq City" },
-      { name: "Electronic University project", location: "Dammam" },
+      { name: "Saline Water Conversion Corporation project", location: "Shuqaiq" },
+      { name: "Saudi Electronic University project", location: "Dammam" },
       { name: "Riyadh Metro Project", location: "Riyadh" },
-      { name: "Electronic University Project (Women’s Campus)", location: "Riyadh" },
-      { name: "Electronic University Project (Men’s Campus)", location: "Riyadh" },
-      { name: "Saudi Telecom Company Project", location: "Saudi Telecom Company" },
-      { name: "Ministry of Foreign Affairs Project", location: "Medina" },
-      { name: "Ministry of Foreign Affairs Project", location: "Riyadh" },
-      { name: "Altadrea Manufacturing Company Project", location: "—" },
-      { name: "Alshaya International Trading Company Project", location: "—" },
-      { name: "Municipality of Khapra City Project", location: "Khapra City" },
-      { name: "Ministry of Foreign Affairs – batteries project", location: "Riyadh" },
-      { name: "Battery project of the Ministry of Hajj and Umrah", location: "—" },
+      { name: "Saudi Electronic University – Women’s Campus", location: "Riyadh" },
+      { name: "Saudi Electronic University – Men’s Campus", location: "Riyadh" },
+      { name: "Saudi Telecom Company (STC) project", location: "To be specified" },
+      { name: "Ministry of Foreign Affairs project", location: "Madinah" },
+      {
+        name: "Supply, installation and commissioning of generators for Saudi embassies abroad — 12 generators across 7 embassies",
+        location: "Brasília, Lisbon, Nicosia, Nairobi, Addis Ababa, Asmara and Libreville",
+      },
+      { name: "Maintenance of generators, UPS and CBS systems — Ministry of Foreign Affairs", location: "Riyadh" },
+      {
+        name: "CBS battery replacement — Prince Saud Al Faisal Institute for Diplomatic Studies",
+        location: "Riyadh",
+      },
+      { name: "Preventive maintenance contract for backup power systems — Alshaya", location: "Riyadh" },
+      { name: "Inspection and maintenance of armored vehicles and their generators — Joint Forces", location: "To be specified" },
+      {
+        name: "Supply and installation of electrical systems, mast systems and hydraulic jacks for 114 vehicles — Al Arabah Saden",
+        location: "To be specified",
+      },
+      { name: "Supply and maintenance of UPS systems — Ministry of National Guard Health Affairs", location: "Jeddah" },
+      { name: "Supply and maintenance of UPS systems — King Fahd Hospital", location: "Jeddah" },
+      { name: "Supply and maintenance of UPS systems — King Fahd Specialist Hospital", location: "Dammam" },
+      { name: "UPS systems project — Security Forces Hospital", location: "Bisha" },
+      { name: "Backup power systems project — Yanbu Commercial Port", location: "Yanbu" },
+      { name: "Backup power systems project — Royal Saudi Naval Forces", location: "Jazan" },
+      { name: "Preventive maintenance contracts for generators — SAMI Land Systems", location: "Riyadh" },
+      {
+        name: "Supply and installation of integrated electrical systems for 50 vehicles — SAMI Land Systems",
+        location: "Riyadh",
+      },
+      {
+        name: "Supply and installation of electrical systems and hydraulic jacks for 4 mobile-operations vehicles — Al Arabah Saden",
+        location: "To be specified",
+      },
     ],
     cta: {
       title: "Need high-reliability power for your facility?",
@@ -258,6 +283,16 @@ export const en: Dict = {
       primary: "Contact Us",
       secondary: "Request a Proposal",
     },
+  },
+  ceo: {
+    kicker: "Leadership",
+    title: "Message from the CEO",
+    role: "Chief Executive Officer — EVA TAQA",
+    body: [
+      "At EVA TAQA, we believe energy is not merely a source of operation — it is the foundation of business continuity, the backbone of vital sectors, and the basis for a more efficient and sustainable future.",
+      "From this conviction, we deliver integrated engineering solutions across power generation, backup power, and power conversion and management: generators, UPS and CBS systems, inverters and converters, alternators, and control, distribution and protection systems — in addition to vehicle electrification and mobile operations systems for civil and military sectors.",
+      "In every project we work to understand our clients’ needs and design the right solution for each application — from study and supply, through installation, testing and commissioning, to maintenance and technical support. We commit to the highest standards of quality, safety and reliability, drawing on the expertise of our technical teams and our partnerships with leading global manufacturers.",
+    ],
   },
   reliability: {
     title: ["High Reliability.", "Safe Delivery."],
@@ -441,19 +476,37 @@ export const ar: Dict = {
       "تُبرز هذه المشاريع قدرة إيفا طاقة على تسليم بنية تحتية كهربائية عالية الموثوقية — من المنشآت الحكومية إلى المشاريع الوطنية للنقل والعملاء الصناعيين الكبار.",
     tableHeaders: { num: "م", project: "المشروع / العميل", location: "الموقع" },
     rows: [
-      { name: "مشروع شركة تحلية المياه المالحة", location: "مدينة الشقيق" },
+      { name: "مشروع المؤسسة العامة لتحلية المياه المالحة", location: "الشقيق" },
       { name: "مشروع الجامعة السعودية الإلكترونية", location: "الدمام" },
       { name: "مشروع مترو الرياض", location: "الرياض" },
-      { name: "مشروع الجامعة السعودية الإلكترونية (فرع الطالبات)", location: "الرياض" },
-      { name: "مشروع الجامعة السعودية الإلكترونية (فرع الطلاب)", location: "الرياض" },
-      { name: "مشروع شركة الاتصالات السعودية", location: "شركة الاتصالات السعودية" },
+      { name: "مشروع الجامعة السعودية الإلكترونية – فرع الطالبات", location: "الرياض" },
+      { name: "مشروع الجامعة السعودية الإلكترونية – فرع الطلاب", location: "الرياض" },
+      { name: "مشروع شركة الاتصالات السعودية STC", location: "يُحدّد الموقع" },
       { name: "مشروع وزارة الخارجية", location: "المدينة المنورة" },
-      { name: "مشروع وزارة الخارجية", location: "الرياض" },
-      { name: "مشروع شركة التدريع للصناعة", location: "—" },
-      { name: "مشروع شركة الشايع للتجارة الدولية", location: "—" },
-      { name: "مشروع بلدية مدينة خابرا", location: "مدينة خابرا" },
-      { name: "مشروع وزارة الخارجية – بطاريات", location: "الرياض" },
-      { name: "مشروع بطاريات وزارة الحج والعمرة", location: "—" },
+      {
+        name: "توريد وتركيب وتشغيل مولدات السفارات السعودية بالخارج – 12 مولدًا في 7 سفارات",
+        location: "برازيليا، لشبونة، نيقوسيا، نيروبي، أديس أبابا، أسمرة وليبرفيل",
+      },
+      { name: "صيانة المولدات وأنظمة UPS وCBS – وزارة الخارجية", location: "الرياض" },
+      { name: "استبدال بطاريات نظام CBS – معهد الأمير سعود الفيصل للدراسات الدبلوماسية", location: "الرياض" },
+      { name: "عقد الصيانة الوقائية لنظام الكهرباء الاحتياطية – شركة الشايع", location: "الرياض" },
+      { name: "فحص وصيانة العربات المدرعة ومولداتها – القوات المشتركة", location: "يُحدّد الموقع" },
+      {
+        name: "توريد وتركيب منظومات الكهرباء وأنظمة الماست والجاك الهيدروليكي لعدد 114 مركبة – شركة العربة سادن",
+        location: "يُحدّد الموقع",
+      },
+      { name: "توريد وصيانة أنظمة UPS – الشؤون الصحية بوزارة الحرس الوطني", location: "جدة" },
+      { name: "توريد وصيانة أنظمة UPS – مستشفى الملك فهد", location: "جدة" },
+      { name: "توريد وصيانة أنظمة UPS – مستشفى الملك فهد التخصصي", location: "الدمام" },
+      { name: "مشروع أنظمة UPS – مستشفى قوى الأمن", location: "بيشة" },
+      { name: "مشروع أنظمة الطاقة الاحتياطية – ميناء ينبع التجاري", location: "ينبع" },
+      { name: "مشروع أنظمة الطاقة الاحتياطية – القوات البحرية", location: "جازان" },
+      { name: "عقود الصيانة الوقائية للمولدات – SAMI Land Systems", location: "الرياض" },
+      { name: "توريد وتركيب منظومة الكهرباء المتكاملة لعدد 50 مركبة – SAMI Land Systems", location: "الرياض" },
+      {
+        name: "توريد وتركيب منظومة الكهرباء والجاك الهيدروليكي لعدد 4 مركبات للعمليات المتنقلة – شركة العربة سادن",
+        location: "يُحدّد الموقع",
+      },
     ],
     cta: {
       title: "هل تحتاج إلى طاقة عالية الموثوقية لمنشأتك؟",
@@ -462,6 +515,16 @@ export const ar: Dict = {
       primary: "تواصل معنا",
       secondary: "اطلب عرضاً",
     },
+  },
+  ceo: {
+    kicker: "كلمة الرئيس التنفيذي",
+    title: "كلمة الرئيس التنفيذي",
+    role: "الرئيس التنفيذي – إيفا طاقة",
+    body: [
+      "في إيفا طاقة، نؤمن بأن الطاقة ليست مجرد مصدر للتشغيل، بل هي أساس لاستمرارية الأعمال، ودعم القطاعات الحيوية، وبناء مستقبل أكثر كفاءة واستدامة.",
+      "ومن هذا المنطلق، نعمل على تقديم حلول هندسية متكاملة في مجالات توليد الطاقة، والطاقة الاحتياطية، وتحويل وإدارة الطاقة، تشمل المولدات الكهربائية، وأنظمة UPS وCBS، والإنفرتر والكونفرتر، والألترنيتر، وأنظمة التحكم والتوزيع والحماية، بالإضافة إلى تجهيز المركبات ومنظومات العمليات المتنقلة للقطاعات المدنية والعسكرية.",
+      "نحرص في جميع مشاريعنا على فهم احتياجات عملائنا وتصميم الحلول المناسبة لكل تطبيق، بدءًا من الدراسة والتوريد، مرورًا بالتركيب والاختبار والتشغيل، ووصولًا إلى خدمات الصيانة والدعم الفني. ونلتزم في ذلك بأعلى معايير الجودة والسلامة والموثوقية، مستفيدين من خبرات فرقنا الفنية وشراكاتنا مع الشركات العالمية الرائدة في هذا المجال.",
+    ],
   },
   reliability: {
     title: ["موثوقية عالية.", "وتنفيذ آمن."],
