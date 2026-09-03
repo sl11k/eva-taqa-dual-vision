@@ -284,6 +284,16 @@ export const en: Dict = {
       secondary: "Request a Proposal",
     },
   },
+  ceo: {
+    kicker: "Leadership",
+    title: "Message from the CEO",
+    role: "Chief Executive Officer — EVA TAQA",
+    body: [
+      "At EVA TAQA, we believe energy is not merely a source of operation — it is the foundation of business continuity, the backbone of vital sectors, and the basis for a more efficient and sustainable future.",
+      "From this conviction, we deliver integrated engineering solutions across power generation, backup power, and power conversion and management: generators, UPS and CBS systems, inverters and converters, alternators, and control, distribution and protection systems — in addition to vehicle electrification and mobile operations systems for civil and military sectors.",
+      "In every project we work to understand our clients’ needs and design the right solution for each application — from study and supply, through installation, testing and commissioning, to maintenance and technical support. We commit to the highest standards of quality, safety and reliability, drawing on the expertise of our technical teams and our partnerships with leading global manufacturers.",
+    ],
+  },
   reliability: {
     title: ["High Reliability.", "Safe Delivery."],
     body: "EVA TAQA operates with strict quality, commissioning discipline, and lifecycle maintenance. Our approach aligns with recognized best practices and local regulatory expectations, including secure operations and resilience in line with ISO standards in Saudi Arabia.",
