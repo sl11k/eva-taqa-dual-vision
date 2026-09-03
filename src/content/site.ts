@@ -59,6 +59,7 @@ export type Dict = {
     rows: { name: string; location: string }[];
     cta: { title: string; body: string; primary: string; secondary: string };
   };
+  ceo: { kicker: string; title: string; role: string; body: string[] };
   reliability: { title: string[]; body: string };
   ctaBlock: { title: string; body: string; primary: string; secondary: string };
   contact: {
