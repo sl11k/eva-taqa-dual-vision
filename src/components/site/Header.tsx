@@ -3,7 +3,7 @@ import { Link } from "@/components/site/link";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import type { Lang } from "@/content/site";
-import logoLight from "@/assets/eva-taqa-logo-light.png.asset.json";
+import logoLight from "@/assets/eva-taqa-logo-light.png";
 import { dictFor, storeLang, swapLangPath } from "@/lib/lang";
 
 export function Header({ lang }: { lang: Lang }) {
@@ -39,7 +39,7 @@ export function Header({ lang }: { lang: Lang }) {
       <div className="mx-auto flex max-w-[1280px] items-center gap-6 px-6">
         <Link to={`/${lang}`} className="group flex items-center" aria-label="EVA TAQA">
           <img
-            src={logoLight.url}
+            src={logoLight}
             alt={lang === "en" ? "EVA TAQA logo" : "شعار ايفا طاقة"}
             width={1256}
             height={310}

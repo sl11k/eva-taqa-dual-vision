@@ -9,7 +9,8 @@ export type ServiceSlug =
   | "electrical-installations"
   | "power-plants"
   | "solar-renewable"
-  | "control-panels-hvac";
+  | "control-panels-hvac"
+  | "power-conversion";
 
 export const SERVICE_SLUGS: ServiceSlug[] = [
   "power-transmission",
@@ -18,6 +19,7 @@ export const SERVICE_SLUGS: ServiceSlug[] = [
   "power-plants",
   "solar-renewable",
   "control-panels-hvac",
+  "power-conversion",
 ];
 
 type Service = { num: string; title: string; desc: string; points: string[] };
@@ -47,7 +49,13 @@ export type Dict = {
     pillars: { title: string; desc: string }[];
   };
   vmso: { key: string; label: string; heading: string; body?: string; items?: string[] }[];
-  services: { title: string; kicker: string; items: Record<ServiceSlug, Service>; detailCta: string; back: string };
+  services: {
+    title: string;
+    kicker: string;
+    items: Record<ServiceSlug, Service>;
+    detailCta: string;
+    back: string;
+  };
   projects: {
     title: string;
     kicker: string;
@@ -56,7 +64,7 @@ export type Dict = {
     majorTitle: string;
     majorNote: string;
     tableHeaders: { num: string; project: string; location: string };
-    rows: { name: string; location: string }[];
+    rows: { name: string; location: string; military?: boolean }[];
     cta: { title: string; body: string; primary: string; secondary: string };
   };
   ceo: { kicker: string; title: string; role: string; body: string[] };
@@ -78,7 +86,14 @@ export type Dict = {
     infoLabels: { email: string; phone: string; address: string };
     address: string[];
   };
-  footer: { statement: string; blurb: string; companyCol: string; contactCol: string; location: string; rights: string };
+  footer: {
+    statement: string;
+    blurb: string;
+    companyCol: string;
+    contactCol: string;
+    location: string;
+    rights: string;
+  };
 };
 
 const email = "sales@evataqa.com";
@@ -89,7 +104,13 @@ export const en: Dict = {
   brand: "EVA TAQA",
   langName: "English",
   otherLangLabel: "العربية",
-  nav: { home: "Home", about: "About Us", services: "Services", projects: "Projects", contact: "Contact Us" },
+  nav: {
+    home: "Home",
+    about: "About Us",
+    services: "Services",
+    projects: "Projects",
+    contact: "Contact Us",
+  },
   cta: "Request a Proposal",
   meta: {
     home: {
@@ -136,10 +157,22 @@ export const en: Dict = {
     ],
     cta: "Discover EVA TAQA",
     pillars: [
-      { title: "Study & Design", desc: "Load studies, technical design and value engineering before a single cable is pulled." },
-      { title: "Execution & Commissioning", desc: "Installation, testing and commissioning under strict quality discipline." },
-      { title: "Operation & Maintenance", desc: "Lifecycle support that keeps critical assets available and safe." },
-      { title: "Flexible Financing", desc: "Innovative and diversified financing models matched to project scale." },
+      {
+        title: "Study & Design",
+        desc: "Load studies, technical design and value engineering before a single cable is pulled.",
+      },
+      {
+        title: "Execution & Commissioning",
+        desc: "Installation, testing and commissioning under strict quality discipline.",
+      },
+      {
+        title: "Operation & Maintenance",
+        desc: "Lifecycle support that keeps critical assets available and safe.",
+      },
+      {
+        title: "Flexible Financing",
+        desc: "Innovative and diversified financing models matched to project scale.",
+      },
     ],
   },
   vmso: [
@@ -199,31 +232,61 @@ export const en: Dict = {
         num: "02",
         title: "Distribution Networks & Substations",
         desc: "Building distribution centers, load distribution, voltage breakers, and urban MV/HV stations.",
-        points: ["Distribution centres and load distribution", "Voltage breakers and protection", "MV/HV stations inside cities"],
+        points: [
+          "Distribution centres and load distribution",
+          "Voltage breakers and protection",
+          "MV/HV stations inside cities",
+        ],
       },
       "electrical-installations": {
         num: "03",
         title: "Full Electrical Installations",
         desc: "Internal & external building installations: electrical, mechanical, electronic, lighting & façades.",
-        points: ["Electrical and mechanical building systems", "Electronic and low-current systems", "Interior lighting and façade lighting"],
+        points: [
+          "Electrical and mechanical building systems",
+          "Electronic and low-current systems",
+          "Interior lighting and façade lighting",
+        ],
       },
       "power-plants": {
         num: "04",
         title: "Power Plants & Commissioning",
         desc: "Construction, equipping & commissioning of various power plants and critical backup systems.",
-        points: ["Plant construction and equipping", "Testing and commissioning", "Critical backup power systems"],
+        points: [
+          "Plant construction and equipping",
+          "Testing and commissioning",
+          "Critical backup power systems",
+        ],
       },
       "solar-renewable": {
         num: "05",
         title: "Solar & Renewable Energy",
         desc: "Solar power plants and solar heating units for facilities, from design to installation.",
-        points: ["Solar power plants", "Solar heating units for facilities", "Design through installation"],
+        points: [
+          "Solar power plants",
+          "Solar heating units for facilities",
+          "Design through installation",
+        ],
       },
       "control-panels-hvac": {
         num: "06",
         title: "Control Rooms, Panels & HVAC",
         desc: "MV/LV panel fabrication, control centers, transformers, circuit breakers and HVAC work.",
-        points: ["MV/LV panel fabrication", "Control centres, transformers, circuit breakers", "HVAC works"],
+        points: [
+          "MV/LV panel fabrication",
+          "Control centres, transformers, circuit breakers",
+          "HVAC works",
+        ],
+      },
+      "power-conversion": {
+        num: "07",
+        title: "Power Conversion & Management",
+        desc: "Supply, installation and maintenance of power-conversion systems for fixed and mobile applications.",
+        points: [
+          "12V, 24V and 48V alternators",
+          "Inverters, converters and charging systems",
+          "Voltage regulation for fixed and mobile applications",
+        ],
       },
     },
   },
@@ -238,6 +301,25 @@ export const en: Dict = {
       "These projects highlight EVA TAQA’s delivery of high-reliability electrical infrastructure — from government facilities to national mobility projects and large-scale industrial clients.",
     tableHeaders: { num: "#", project: "Project / Client", location: "Location" },
     rows: [
+      {
+        name: "Mobile vehicle electrical and inverter system installation",
+        location: "Saudi Arabia",
+      },
+      {
+        name: "Generator maintenance for SAMI Military Industries",
+        location: "Riyadh",
+        military: true,
+      },
+      { name: "Generator maintenance for Saudi Electronic University", location: "Saudi Arabia" },
+      { name: "Electrical systems for SDAIA mobile vehicles", location: "Saudi Arabia" },
+      {
+        name: "UPS supply and installation at Alab border crossing",
+        location: "Dhahran Al-Janoub",
+      },
+      {
+        name: "Battery supply and installation for the Satellite Administration",
+        location: "Tabuk",
+      },
       { name: "Saline Water Conversion Corporation project", location: "Shuqaiq" },
       { name: "Saudi Electronic University project", location: "Dammam" },
       { name: "Riyadh Metro Project", location: "Riyadh" },
@@ -249,37 +331,63 @@ export const en: Dict = {
         name: "Supply, installation and commissioning of generators for Saudi embassies abroad — 12 generators across 7 embassies",
         location: "Brasília, Lisbon, Nicosia, Nairobi, Addis Ababa, Asmara and Libreville",
       },
-      { name: "Maintenance of generators, UPS and CBS systems — Ministry of Foreign Affairs", location: "Riyadh" },
+      {
+        name: "Maintenance of generators, UPS and CBS systems — Ministry of Foreign Affairs",
+        location: "Riyadh",
+      },
       {
         name: "CBS battery replacement — Prince Saud Al Faisal Institute for Diplomatic Studies",
         location: "Riyadh",
       },
-      { name: "Preventive maintenance contract for backup power systems — Alshaya", location: "Riyadh" },
-      { name: "Inspection and maintenance of armored vehicles and their generators — Joint Forces", location: "To be specified" },
+      {
+        name: "Preventive maintenance contract for backup power systems — Alshaya",
+        location: "Riyadh",
+      },
+      {
+        name: "Inspection and maintenance of armored vehicles and their generators — Joint Forces",
+        location: "To be specified",
+        military: true,
+      },
       {
         name: "Supply and installation of electrical systems, mast systems and hydraulic jacks for 114 vehicles — Al Arabah Saden",
         location: "To be specified",
+        military: true,
       },
-      { name: "Supply and maintenance of UPS systems — Ministry of National Guard Health Affairs", location: "Jeddah" },
+      {
+        name: "Supply and maintenance of UPS systems — Ministry of National Guard Health Affairs",
+        location: "Jeddah",
+      },
       { name: "Supply and maintenance of UPS systems — King Fahd Hospital", location: "Jeddah" },
-      { name: "Supply and maintenance of UPS systems — King Fahd Specialist Hospital", location: "Dammam" },
+      {
+        name: "Supply and maintenance of UPS systems — King Fahd Specialist Hospital",
+        location: "Dammam",
+      },
       { name: "UPS systems project — Security Forces Hospital", location: "Bisha" },
       { name: "Backup power systems project — Yanbu Commercial Port", location: "Yanbu" },
-      { name: "Backup power systems project — Royal Saudi Naval Forces", location: "Jazan" },
-      { name: "Preventive maintenance contracts for generators — SAMI Land Systems", location: "Riyadh" },
+      {
+        name: "Backup power systems project — Royal Saudi Naval Forces",
+        location: "Jazan",
+        military: true,
+      },
+      {
+        name: "Preventive maintenance contracts for generators — SAMI Land Systems",
+        location: "Riyadh",
+        military: true,
+      },
       {
         name: "Supply and installation of integrated electrical systems for 50 vehicles — SAMI Land Systems",
         location: "Riyadh",
+        military: true,
       },
       {
         name: "Supply and installation of electrical systems and hydraulic jacks for 4 mobile-operations vehicles — Al Arabah Saden",
         location: "To be specified",
+        military: true,
       },
     ],
     cta: {
       title: "Need high-reliability power for your facility?",
-      body:
-        "Tell us about your site. Our engineering team will propose the safest technical and most economical electrical solution.",
+      body: "Tell us about your site. Our engineering team will propose the safest technical and most economical electrical solution.",
       primary: "Contact Us",
       secondary: "Request a Proposal",
     },
@@ -335,7 +443,13 @@ export const ar: Dict = {
   brand: "إيفا طاقة",
   langName: "العربية",
   otherLangLabel: "EN",
-  nav: { home: "الرئيسية", about: "من نحن", services: "خدماتنا", projects: "مشاريعنا", contact: "تواصل معنا" },
+  nav: {
+    home: "الرئيسية",
+    about: "من نحن",
+    services: "خدماتنا",
+    projects: "مشاريعنا",
+    contact: "تواصل معنا",
+  },
   cta: "طلب عرض",
   meta: {
     home: {
@@ -345,19 +459,23 @@ export const ar: Dict = {
     },
     about: {
       title: "من نحن — إيفا طاقة لحلول الطاقة الكهربائية",
-      description: "رؤية إيفا طاقة ومهمتها واستراتيجيتها وأهدافها في تقديم حلول الطاقة الكهربائية الحديثة للبنية التحتية في المملكة.",
+      description:
+        "رؤية إيفا طاقة ومهمتها واستراتيجيتها وأهدافها في تقديم حلول الطاقة الكهربائية الحديثة للبنية التحتية في المملكة.",
     },
     services: {
       title: "خدماتنا الأساسية — نقل الطاقة والمحطات والطاقة الشمسية | إيفا طاقة",
-      description: "خطوط ونقل الطاقة، شبكات التوزيع والمحطات الفرعية، الأعمال الكهربائية المتكاملة، محطات التوليد، الطاقة الشمسية، اللوحات وأنظمة التكييف.",
+      description:
+        "خطوط ونقل الطاقة، شبكات التوزيع والمحطات الفرعية، الأعمال الكهربائية المتكاملة، محطات التوليد، الطاقة الشمسية، اللوحات وأنظمة التكييف.",
     },
     projects: {
       title: "المشاريع المنجزة — إيفا طاقة",
-      description: "نماذج من المشاريع التي نفذتها إيفا طاقة، ومنها مشروع مترو الرياض وشركة الاتصالات السعودية والجامعة السعودية الإلكترونية.",
+      description:
+        "نماذج من المشاريع التي نفذتها إيفا طاقة، ومنها مشروع مترو الرياض وشركة الاتصالات السعودية والجامعة السعودية الإلكترونية.",
     },
     contact: {
       title: "تواصل مع إيفا طاقة — لنمنح مشروعك الطاقة التي يحتاجها",
-      description: "تحدث مع فريق إيفا طاقة الهندسي في الرياض حول أنظمة الطاقة لمشروعك أو منشأتك. sales@evataqa.com · ‎+966 544967553.",
+      description:
+        "تحدث مع فريق إيفا طاقة الهندسي في الرياض حول أنظمة الطاقة لمشروعك أو منشأتك. sales@evataqa.com · ‎+966 544967553.",
     },
   },
   hero: {
@@ -378,9 +496,18 @@ export const ar: Dict = {
     ],
     cta: "اكتشف إيفا طاقة",
     pillars: [
-      { title: "الدراسات والتصميم", desc: "دراسات الأحمال والتصميم الفني وهندسة القيمة قبل بدء التنفيذ." },
-      { title: "التنفيذ والتشغيل", desc: "التركيب والاختبارات والتشغيل وفق انضباط صارم في الجودة." },
-      { title: "التشغيل والصيانة", desc: "دعم متكامل على مدار دورة حياة الأصول الحيوية لضمان جاهزيتها وسلامتها." },
+      {
+        title: "الدراسات والتصميم",
+        desc: "دراسات الأحمال والتصميم الفني وهندسة القيمة قبل بدء التنفيذ.",
+      },
+      {
+        title: "التنفيذ والتشغيل",
+        desc: "التركيب والاختبارات والتشغيل وفق انضباط صارم في الجودة.",
+      },
+      {
+        title: "التشغيل والصيانة",
+        desc: "دعم متكامل على مدار دورة حياة الأصول الحيوية لضمان جاهزيتها وسلامتها.",
+      },
       { title: "تمويل مرن", desc: "نماذج تمويل مبتكرة ومتنوعة تناسب حجم كل مشروع." },
     ],
   },
@@ -431,25 +558,41 @@ export const ar: Dict = {
         num: "٠١",
         title: "خطوط ونقل الطاقة",
         desc: "تصميم وتنفيذ خطوط الطاقة وشبكات نقل الكهرباء داخل المدن وخارجها.",
-        points: ["الخطوط الهوائية ومسارات الكابلات الأرضية", "تصميم وتنفيذ شبكات النقل", "ممرات الطاقة داخل المدن وبينها"],
+        points: [
+          "الخطوط الهوائية ومسارات الكابلات الأرضية",
+          "تصميم وتنفيذ شبكات النقل",
+          "ممرات الطاقة داخل المدن وبينها",
+        ],
       },
       "distribution-substations": {
         num: "٠٢",
         title: "شبكات التوزيع والمحطات الفرعية",
         desc: "إنشاء مراكز التوزيع، وتوزيع الأحمال، وقواطع الجهد، ومحطات الجهد المتوسط والعالي داخل المدن.",
-        points: ["مراكز التوزيع وتوزيع الأحمال", "قواطع الجهد وأنظمة الحماية", "محطات الجهد المتوسط والعالي"],
+        points: [
+          "مراكز التوزيع وتوزيع الأحمال",
+          "قواطع الجهد وأنظمة الحماية",
+          "محطات الجهد المتوسط والعالي",
+        ],
       },
       "electrical-installations": {
         num: "٠٣",
         title: "الأعمال الكهربائية المتكاملة",
         desc: "تنفيذ الأعمال الداخلية والخارجية للمباني، بما يشمل الأنظمة الكهربائية والميكانيكية والإلكترونية والإضاءة والواجهات.",
-        points: ["الأنظمة الكهربائية والميكانيكية للمباني", "الأنظمة الإلكترونية وأنظمة التيار الخفيف", "إضاءة المباني والواجهات"],
+        points: [
+          "الأنظمة الكهربائية والميكانيكية للمباني",
+          "الأنظمة الإلكترونية وأنظمة التيار الخفيف",
+          "إضاءة المباني والواجهات",
+        ],
       },
       "power-plants": {
         num: "٠٤",
         title: "محطات توليد الطاقة والتشغيل",
         desc: "إنشاء وتجهيز واختبار وتشغيل مختلف محطات الطاقة وأنظمة الطاقة الاحتياطية الحيوية.",
-        points: ["إنشاء وتجهيز المحطات", "الاختبارات وأعمال التشغيل", "أنظمة الطاقة الاحتياطية الحيوية"],
+        points: [
+          "إنشاء وتجهيز المحطات",
+          "الاختبارات وأعمال التشغيل",
+          "أنظمة الطاقة الاحتياطية الحيوية",
+        ],
       },
       "solar-renewable": {
         num: "٠٥",
@@ -461,7 +604,21 @@ export const ar: Dict = {
         num: "٠٦",
         title: "غرف التحكم واللوحات وأنظمة التكييف",
         desc: "تصنيع لوحات الجهد المتوسط والمنخفض، ومراكز التحكم، والمحولات، وقواطع الدائرة، وأعمال التكييف.",
-        points: ["تصنيع لوحات الجهد المتوسط والمنخفض", "مراكز التحكم والمحولات والقواطع", "أعمال التكييف"],
+        points: [
+          "تصنيع لوحات الجهد المتوسط والمنخفض",
+          "مراكز التحكم والمحولات والقواطع",
+          "أعمال التكييف",
+        ],
+      },
+      "power-conversion": {
+        num: "٠٧",
+        title: "أنظمة تحويل وإدارة الطاقة الكهربائية",
+        desc: "توريد وتركيب وصيانة حلول تحويل وإدارة الطاقة للتطبيقات الثابتة والمتنقلة.",
+        points: [
+          "ألترنيتر بجهود 12V و24V و48V",
+          "الإنفيرتر والكونفيرتر وأنظمة الشحن",
+          "تنظيم الجهد للتطبيقات الثابتة والمتنقلة",
+        ],
       },
     },
   },
@@ -476,6 +633,15 @@ export const ar: Dict = {
       "تُبرز هذه المشاريع قدرة إيفا طاقة على تسليم بنية تحتية كهربائية عالية الموثوقية — من المنشآت الحكومية إلى المشاريع الوطنية للنقل والعملاء الصناعيين الكبار.",
     tableHeaders: { num: "م", project: "المشروع / العميل", location: "الموقع" },
     rows: [
+      { name: "تركيب منظومة كهرباء وإنفيرتر لمركبة متنقلة", location: "المملكة العربية السعودية" },
+      { name: "صيانة مولدات شركة سامي للصناعات العسكرية", location: "الرياض", military: true },
+      { name: "صيانة مولدات الجامعة السعودية الإلكترونية", location: "المملكة العربية السعودية" },
+      {
+        name: "تجهيز منظومة الكهرباء للعربات المتنقلة لسدايا",
+        location: "المملكة العربية السعودية",
+      },
+      { name: "توريد وتركيب UPS لمنفذ علب", location: "ظهران الجنوب" },
+      { name: "توريد وتركيب بطاريات بإدارة الأقمار الصناعية", location: "تبوك" },
       { name: "مشروع المؤسسة العامة لتحلية المياه المالحة", location: "الشقيق" },
       { name: "مشروع الجامعة السعودية الإلكترونية", location: "الدمام" },
       { name: "مشروع مترو الرياض", location: "الرياض" },
@@ -488,30 +654,46 @@ export const ar: Dict = {
         location: "برازيليا، لشبونة، نيقوسيا، نيروبي، أديس أبابا، أسمرة وليبرفيل",
       },
       { name: "صيانة المولدات وأنظمة UPS وCBS – وزارة الخارجية", location: "الرياض" },
-      { name: "استبدال بطاريات نظام CBS – معهد الأمير سعود الفيصل للدراسات الدبلوماسية", location: "الرياض" },
+      {
+        name: "استبدال بطاريات نظام CBS – معهد الأمير سعود الفيصل للدراسات الدبلوماسية",
+        location: "الرياض",
+      },
       { name: "عقد الصيانة الوقائية لنظام الكهرباء الاحتياطية – شركة الشايع", location: "الرياض" },
-      { name: "فحص وصيانة العربات المدرعة ومولداتها – القوات المشتركة", location: "يُحدّد الموقع" },
+      {
+        name: "فحص وصيانة العربات المدرعة ومولداتها – القوات المشتركة",
+        location: "يُحدّد الموقع",
+        military: true,
+      },
       {
         name: "توريد وتركيب منظومات الكهرباء وأنظمة الماست والجاك الهيدروليكي لعدد 114 مركبة – شركة العربة سادن",
         location: "يُحدّد الموقع",
+        military: true,
       },
       { name: "توريد وصيانة أنظمة UPS – الشؤون الصحية بوزارة الحرس الوطني", location: "جدة" },
       { name: "توريد وصيانة أنظمة UPS – مستشفى الملك فهد", location: "جدة" },
       { name: "توريد وصيانة أنظمة UPS – مستشفى الملك فهد التخصصي", location: "الدمام" },
       { name: "مشروع أنظمة UPS – مستشفى قوى الأمن", location: "بيشة" },
       { name: "مشروع أنظمة الطاقة الاحتياطية – ميناء ينبع التجاري", location: "ينبع" },
-      { name: "مشروع أنظمة الطاقة الاحتياطية – القوات البحرية", location: "جازان" },
-      { name: "عقود الصيانة الوقائية للمولدات – SAMI Land Systems", location: "الرياض" },
-      { name: "توريد وتركيب منظومة الكهرباء المتكاملة لعدد 50 مركبة – SAMI Land Systems", location: "الرياض" },
+      { name: "مشروع أنظمة الطاقة الاحتياطية – القوات البحرية", location: "جازان", military: true },
+      {
+        name: "عقود الصيانة الوقائية للمولدات – SAMI Land Systems",
+        location: "الرياض",
+        military: true,
+      },
+      {
+        name: "توريد وتركيب منظومة الكهرباء المتكاملة لعدد 50 مركبة – SAMI Land Systems",
+        location: "الرياض",
+        military: true,
+      },
       {
         name: "توريد وتركيب منظومة الكهرباء والجاك الهيدروليكي لعدد 4 مركبات للعمليات المتنقلة – شركة العربة سادن",
         location: "يُحدّد الموقع",
+        military: true,
       },
     ],
     cta: {
       title: "هل تحتاج إلى طاقة عالية الموثوقية لمنشأتك؟",
-      body:
-        "أخبرنا عن موقعك واحتياجاتك. سيعمل فريقنا الهندسي على اقتراح الحل الكهربائي الأكثر أماناً والأوفر اقتصادياً.",
+      body: "أخبرنا عن موقعك واحتياجاتك. سيعمل فريقنا الهندسي على اقتراح الحل الكهربائي الأكثر أماناً والأوفر اقتصادياً.",
       primary: "تواصل معنا",
       secondary: "اطلب عرضاً",
     },
@@ -550,7 +732,12 @@ export const ar: Dict = {
       success: "شكراً لك. تم تجهيز استفسارك وسيتواصل معك فريقنا قريباً.",
     },
     infoLabels: { email: "البريد الإلكتروني", phone: "رقم الهاتف", address: "العنوان" },
-    address: ["4273 فرع عمر بن الخطاب،", "8532 حي الفاروق،", "الرياض 12863،", "المملكة العربية السعودية"],
+    address: [
+      "4273 فرع عمر بن الخطاب،",
+      "8532 حي الفاروق،",
+      "الرياض 12863،",
+      "المملكة العربية السعودية",
+    ],
   },
   footer: {
     statement: "نطمح بأن نكون الأولى في الشرق الأوسط.",

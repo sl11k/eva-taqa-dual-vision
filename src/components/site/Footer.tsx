@@ -1,31 +1,31 @@
 import { Link } from "@/components/site/link";
 import { CONTACT, type Lang } from "@/content/site";
 import { dictFor } from "@/lib/lang";
-import logoLight from "@/assets/eva-taqa-logo-light.png.asset.json";
+import logoLight from "@/assets/eva-taqa-logo-light.png";
 
 export function Footer({ lang }: { lang: Lang }) {
   const t = dictFor(lang);
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-hairline bg-surface/40">
+    <footer className="border-t border-white/10 bg-navy text-white">
       <div className="mx-auto grid max-w-[1280px] gap-12 px-6 py-16 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <img
-            src={logoLight.url}
+            src={logoLight}
             alt={lang === "en" ? "EVA TAQA logo" : "شعار ايفا طاقة"}
-            width={1256}
-            height={310}
+            width={1200}
+            height={296}
             loading="lazy"
             className="mb-7 h-10 w-auto"
           />
           <p className="text-xl font-bold text-orange max-w-sm">{t.footer.statement}</p>
-          <p className="mt-4 max-w-sm text-sm text-muted-foreground">{t.footer.blurb}</p>
+          <p className="mt-4 max-w-sm text-sm text-white/65">{t.footer.blurb}</p>
           <div className="mt-6 h-px w-24 accent-rule" />
         </div>
 
         <div>
-          <h3 className="text-xs font-bold tracking-[0.2em] uppercase text-muted-foreground">
+          <h3 className="text-xs font-bold tracking-[0.2em] text-white/55 uppercase">
             {t.footer.companyCol}
           </h3>
           <ul className="mt-5 space-y-3 text-sm">
@@ -36,7 +36,7 @@ export function Footer({ lang }: { lang: Lang }) {
               { to: `/${lang}/contact`, label: t.nav.contact },
             ].map((l) => (
               <li key={l.to}>
-                <Link to={l.to} className="text-muted-foreground transition-colors hover:text-foreground">
+                <Link to={l.to} className="text-white/70 transition-colors hover:text-white">
                   {l.label}
                 </Link>
               </li>
@@ -45,17 +45,23 @@ export function Footer({ lang }: { lang: Lang }) {
         </div>
 
         <div>
-          <h3 className="text-xs font-bold tracking-[0.2em] uppercase text-muted-foreground">
+          <h3 className="text-xs font-bold tracking-[0.2em] text-white/55 uppercase">
             {t.footer.contactCol}
           </h3>
-          <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
+          <ul className="mt-5 space-y-3 text-sm text-white/70">
             <li>
-              <a href={`mailto:${CONTACT.email}`} className="ltr-inline transition-colors hover:text-foreground">
+              <a
+                href={`mailto:${CONTACT.email}`}
+                className="ltr-inline transition-colors hover:text-white"
+              >
                 {CONTACT.email}
               </a>
             </li>
             <li>
-              <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="ltr-inline transition-colors hover:text-foreground">
+              <a
+                href={`tel:${CONTACT.phone.replace(/\s/g, "")}`}
+                className="ltr-inline transition-colors hover:text-white"
+              >
                 {CONTACT.phone}
               </a>
             </li>
@@ -64,8 +70,8 @@ export function Footer({ lang }: { lang: Lang }) {
         </div>
       </div>
 
-      <div className="border-t border-hairline">
-        <div className="mx-auto flex max-w-[1280px] flex-wrap items-center justify-between gap-3 px-6 py-6 text-xs text-muted-foreground">
+      <div className="border-t border-white/10">
+        <div className="mx-auto flex max-w-[1280px] flex-wrap items-center justify-between gap-3 px-6 py-6 text-xs text-white/50">
           <span>
             © <span className="ltr-inline">{year}</span> {t.footer.rights}
           </span>

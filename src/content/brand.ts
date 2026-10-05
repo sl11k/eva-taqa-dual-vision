@@ -12,9 +12,15 @@ export type BrandDict = {
   why: { kicker: string; title: string[]; body: string; quote: string; quoteHighlight: string };
   numbers: { kicker: string; title: string; items: { value: string; label: string }[] };
   industries: { kicker: string; title: string; items: string[] };
-  process: { kicker: string; title: string; body: string; steps: { num: string; title: string; desc: string }[] };
+  process: {
+    kicker: string;
+    title: string;
+    body: string;
+    steps: { num: string; title: string; desc: string }[];
+  };
   values: { kicker: string; title: string; items: { title: string; desc: string }[] };
   partners: { kicker: string; title: string; body: string; items: string[] };
+  clients: { kicker: string; title: string; body: string; items: string[] };
   hse: { kicker: string; title: string; body: string; items: string[] };
   vision2030: { kicker: string; title: string; body: string; items: string[] };
   commitment: { line1: string; line2: string; line3: string };
@@ -22,7 +28,8 @@ export type BrandDict = {
 
 const brandEn: BrandDict = {
   signature: "ENGINEERING CONFIDENCE",
-  signatureSub: "Integrated engineering solutions. Engineered for performance. Delivered with confidence.",
+  signatureSub:
+    "Integrated engineering solutions. Engineered for performance. Delivered with confidence.",
   confidence: {
     lines: ["WE DON'T BUILD POWER.", "WE BUILD CONFIDENCE."],
     body: "At EVA TAQA, we engineer mission-critical systems that perform when it matters most. Every solution. Every time.",
@@ -96,19 +103,58 @@ const brandEn: BrandDict = {
     kicker: "Global partners",
     title: "TECHNOLOGY WE TRUST",
     body: "We build on equipment and platforms from world-class manufacturers, integrated by our own engineering teams.",
-    items: ["ABB", "SCHNEIDER ELECTRIC", "EATON", "CUMMINS", "ComAp", "LIXISE", "RIM IMPIANTI", "FISCHER PANDA", "TEKOM"],
+    items: [
+      "ABB",
+      "SCHNEIDER ELECTRIC",
+      "EATON",
+      "CUMMINS",
+      "ComAp",
+      "LIXISE",
+      "RIM IMPIANTI",
+      "FISCHER PANDA",
+      "TEKOM",
+      "PERKINS",
+      "LEMKO",
+      "ITAPOWER",
+      "RESTAR SOLAR",
+    ],
+  },
+  clients: {
+    kicker: "Selected clients",
+    title: "TRUSTED ACROSS CRITICAL SECTORS",
+    body: "A selection of public, industrial, healthcare and infrastructure organizations served by EVA TAQA.",
+    items: [
+      "Saudi Electronic University",
+      "Riyadh Metro",
+      "STC",
+      "Ministry of Foreign Affairs",
+      "National Guard Health Affairs",
+      "SAMI Land Systems",
+    ],
   },
   hse: {
     kicker: "Health, safety & environment",
     title: "SAFETY IS OUR PRIORITY",
     body: "We are committed to protecting people, assets and the environment on every site we enter.",
-    items: ["Zero-harm culture", "Risk management", "Environmental protection", "Compliance & training", "ISO 9001:2015", "Strict quality control"],
+    items: [
+      "Zero-harm culture",
+      "Risk management",
+      "Environmental protection",
+      "Compliance & training",
+      "ISO 9001:2015",
+      "Strict quality control",
+    ],
   },
   vision2030: {
     kicker: "Vision 2030",
     title: "TOGETHER FOR A STRONGER TOMORROW",
     body: "Our work supports the Kingdom's transition to a diversified, sustainable and resilient energy future.",
-    items: ["Localization of engineering capability", "Renewable energy integration", "National infrastructure resilience", "Saudi engineering talent development"],
+    items: [
+      "Localization of engineering capability",
+      "Renewable energy integration",
+      "National infrastructure resilience",
+      "Saudi engineering talent development",
+    ],
   },
   commitment: {
     line1: "THIS IS WHO WE ARE.",
@@ -193,19 +239,58 @@ const brandAr: BrandDict = {
     kicker: "شركاؤنا العالميون",
     title: "تقنيات نثق بها",
     body: "نبني حلولنا على معدات ومنصات من كبرى الشركات العالمية، بتكامل هندسي من فرقنا.",
-    items: ["ABB", "SCHNEIDER ELECTRIC", "EATON", "CUMMINS", "ComAp", "LIXISE", "RIM IMPIANTI", "FISCHER PANDA", "TEKOM"],
+    items: [
+      "ABB",
+      "SCHNEIDER ELECTRIC",
+      "EATON",
+      "CUMMINS",
+      "ComAp",
+      "LIXISE",
+      "RIM IMPIANTI",
+      "FISCHER PANDA",
+      "TEKOM",
+      "PERKINS",
+      "LEMKO",
+      "ITAPOWER",
+      "RESTAR SOLAR",
+    ],
+  },
+  clients: {
+    kicker: "عملاؤنا",
+    title: "ثقة عبر قطاعات حيوية",
+    body: "نماذج من الجهات الحكومية والصناعية والصحية ومشاريع البنية التحتية التي خدمتها إيفا طاقة.",
+    items: [
+      "الجامعة السعودية الإلكترونية",
+      "مترو الرياض",
+      "شركة الاتصالات السعودية STC",
+      "وزارة الخارجية",
+      "الشؤون الصحية بالحرس الوطني",
+      "SAMI Land Systems",
+    ],
   },
   hse: {
     kicker: "الصحة والسلامة والبيئة",
     title: "السلامة أولويتنا",
     body: "نلتزم بحماية الإنسان والأصول والبيئة في كل موقع نعمل به.",
-    items: ["ثقافة صفر إصابات", "إدارة المخاطر", "حماية البيئة", "الالتزام والتدريب", "شهادة ISO 9001:2015", "رقابة جودة صارمة"],
+    items: [
+      "ثقافة صفر إصابات",
+      "إدارة المخاطر",
+      "حماية البيئة",
+      "الالتزام والتدريب",
+      "شهادة ISO 9001:2015",
+      "رقابة جودة صارمة",
+    ],
   },
   vision2030: {
     kicker: "رؤية 2030",
     title: "معاً نحو غدٍ أقوى",
     body: "أعمالنا تدعم تحول المملكة نحو منظومة طاقة متنوعة ومستدامة وأكثر مرونة.",
-    items: ["توطين القدرات الهندسية", "دمج الطاقة المتجددة", "مرونة البنية التحتية الوطنية", "تطوير الكوادر السعودية"],
+    items: [
+      "توطين القدرات الهندسية",
+      "دمج الطاقة المتجددة",
+      "مرونة البنية التحتية الوطنية",
+      "تطوير الكوادر السعودية",
+    ],
   },
   commitment: {
     line1: "هذه هويتنا.",

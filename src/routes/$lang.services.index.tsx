@@ -5,6 +5,7 @@ import { dictFor } from "@/lib/lang";
 import { pageHead } from "@/lib/seo";
 import { Link } from "@/components/site/link";
 import { CtaBand, PageHero, Section } from "@/components/site/Section";
+import { ServiceIcon } from "@/components/site/ServiceIcon";
 
 export const Route = createFileRoute("/$lang/services/")({
   head: ({ params }) => pageHead(isLang(params.lang) ? params.lang : "en", "services", "/services"),
@@ -30,9 +31,7 @@ function Services() {
                 to={`/${lang}/services/${slug}`}
                 className="group bg-surface p-10 transition-colors hover:bg-surface-2"
               >
-                <span className="inline-flex h-10 w-10 items-center justify-center bg-orange text-sm font-bold tracking-widest text-white">
-                  {s.num}
-                </span>
+                <ServiceIcon slug={slug} />
                 <h2 className="mt-5 text-2xl font-bold">{s.title}</h2>
                 <div className="mt-4 h-px w-16 accent-rule opacity-80 transition-all duration-500 group-hover:w-28" />
                 <p className="mt-6 text-muted-foreground">{s.desc}</p>

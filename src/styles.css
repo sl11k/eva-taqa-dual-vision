@@ -326,6 +326,14 @@
   background-size: 26px 26px;
 }
 
+@utility military-grid {
+  background-image:
+    linear-gradient(color-mix(in oklab, #d9b985 12%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, #d9b985 12%, transparent) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: linear-gradient(to bottom, transparent, black 35%, black 80%, transparent);
+}
+
 /* Numbered plate used across process / values / services */
 @utility num-plate {
   display: inline-flex;

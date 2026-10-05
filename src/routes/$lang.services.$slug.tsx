@@ -5,6 +5,7 @@ import { dictFor } from "@/lib/lang";
 import { pageHead } from "@/lib/seo";
 import { Link } from "@/components/site/link";
 import { CtaBand, Section } from "@/components/site/Section";
+import { ServiceIcon } from "@/components/site/ServiceIcon";
 import solarImg from "@/assets/solar.jpg";
 import heroImg from "@/assets/hero-grid.jpg";
 import controlImg from "@/assets/control-room.jpg";
@@ -17,6 +18,7 @@ const IMAGES: Record<ServiceSlug, string> = {
   "power-plants": controlImg,
   "solar-renewable": solarImg,
   "control-panels-hvac": controlImg,
+  "power-conversion": controlImg,
 };
 
 export const Route = createFileRoute("/$lang/services/$slug")({
@@ -64,7 +66,7 @@ function ServiceDetail() {
             <span className="opacity-50">/</span>
             <span className="text-foreground">{s.title}</span>
           </nav>
-          <span className="mt-10 block text-xs font-bold tracking-widest text-orange/80">{s.num}</span>
+          <ServiceIcon slug={slug} className="mt-10" />
           <h1 className={`mt-4 max-w-4xl font-extrabold ${lang === "ar" ? "text-4xl md:text-5xl" : "text-5xl md:text-6xl"}`}>
             {s.title}
           </h1>
@@ -97,7 +99,7 @@ function ServiceDetail() {
         <div className="mt-10 grid gap-px bg-hairline md:grid-cols-3">
           {others.map((o) => (
             <Link key={o} to={`/${lang}/services/${o}`} className="bg-background p-8 transition-colors hover:bg-surface">
-              <span className="text-xs font-bold tracking-widest text-orange/70">{t.services.items[o].num}</span>
+              <ServiceIcon slug={o} />
               <h3 className="mt-4 text-lg font-bold">{t.services.items[o].title}</h3>
             </Link>
           ))}

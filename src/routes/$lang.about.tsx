@@ -3,7 +3,8 @@ import { isLang, type Lang } from "@/content/site";
 import { dictFor } from "@/lib/lang";
 import { pageHead } from "@/lib/seo";
 import { CtaBand, Kicker, PageHero, Section, SectionTitle } from "@/components/site/Section";
-import riyadhImg from "@/assets/riyadh.jpg";
+import engineerImg from "@/assets/eva-taqa-engineer.jpg";
+import ceoImg from "@/assets/ceo-message.jpg";
 
 export const Route = createFileRoute("/$lang/about")({
   head: ({ params }) => pageHead(isLang(params.lang) ? params.lang : "en", "about", "/about"),
@@ -23,18 +24,19 @@ function About() {
         <div className="grid gap-14 lg:grid-cols-2 lg:items-center">
           <div className="relative overflow-hidden border border-hairline">
             <img
-              src={riyadhImg}
-              alt={rtl ? "أفق مدينة الرياض" : "Riyadh skyline at blue hour"}
+              src={engineerImg}
+              alt={rtl ? "مهندس إيفا طاقة يعمل على لوحة توزيع كهربائية" : "EVA TAQA engineer working on an electrical distribution panel"}
               loading="lazy"
-              width={1600}
-              height={1008}
-              className="h-full w-full object-cover"
+              width={1086}
+              height={1448}
+              className="aspect-[4/5] w-full object-cover object-center"
             />
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1 bg-orange" />
 
           </div>
           <div>
-            <p className="text-muted-foreground">{t.about.body[1]}</p>
+            <Kicker>{rtl ? "لماذا نحن" : "Why EVA TAQA"}</Kicker>
+            <p className="mt-6 text-muted-foreground">{t.about.body[1]}</p>
             <p
               className="mt-10 text-2xl font-bold text-orange"
               lang={rtl ? "ar" : undefined}
@@ -60,6 +62,17 @@ function About() {
             <SectionTitle>{t.ceo.title}</SectionTitle>
             <div className="mt-6 h-px w-20 accent-rule" />
             <p className="mt-6 text-xs font-bold tracking-[0.24em] text-muted-foreground uppercase">{t.ceo.role}</p>
+            <div className="relative mt-8 max-w-sm overflow-hidden border border-hairline">
+              <img
+                src={ceoImg}
+                alt={rtl ? "صورة من مناسبة تكريم لإيفا طاقة" : "EVA TAQA recognition ceremony"}
+                loading="lazy"
+                width={837}
+                height={1280}
+                className="aspect-[3/4] w-full object-cover object-top"
+              />
+              <div className="absolute inset-x-0 bottom-0 h-1 bg-orange" />
+            </div>
           </div>
           <div className="border-s-2 border-orange ps-8">
             {t.ceo.body.map((p, i) => (

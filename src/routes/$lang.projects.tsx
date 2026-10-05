@@ -4,6 +4,46 @@ import { dictFor } from "@/lib/lang";
 import { pageHead } from "@/lib/seo";
 import { Link } from "@/components/site/link";
 import { PageHero, Section } from "@/components/site/Section";
+import inverterImg from "@/assets/projects/project-inverter-mobile.jpg";
+import samiImg from "@/assets/projects/project-sami-generators.jpg";
+import seuImg from "@/assets/projects/project-seu-generators.jpg";
+import sdaiaImg from "@/assets/projects/project-sdaia-mobile-operations.jpg";
+import borderUpsImg from "@/assets/projects/project-border-ups.jpg";
+import satelliteBatteriesImg from "@/assets/projects/project-satellite-batteries.jpg";
+
+const featuredProjects = [
+  {
+    image: inverterImg,
+    ar: "تركيب منظومة كهرباء وإنفيرتر لمركبة متنقلة",
+    en: "Mobile vehicle electrical and inverter system installation",
+  },
+  {
+    image: samiImg,
+    ar: "صيانة مولدات شركة سامي للصناعات العسكرية",
+    en: "Generator maintenance for SAMI Military Industries",
+    military: true,
+  },
+  {
+    image: seuImg,
+    ar: "صيانة مولدات الجامعة السعودية الإلكترونية",
+    en: "Generator maintenance for Saudi Electronic University",
+  },
+  {
+    image: sdaiaImg,
+    ar: "تجهيز منظومة الكهرباء للعربات المتنقلة لسدايا",
+    en: "Electrical systems for SDAIA mobile vehicles",
+  },
+  {
+    image: borderUpsImg,
+    ar: "توريد وتركيب UPS لمنفذ علب بظهران الجنوب",
+    en: "UPS supply and installation at Alab border crossing, Dhahran Al-Janoub",
+  },
+  {
+    image: satelliteBatteriesImg,
+    ar: "توريد وتركيب بطاريات بإدارة الأقمار الصناعية في تبوك",
+    en: "Battery supply and installation for the Satellite Administration in Tabuk",
+  },
+];
 
 export const Route = createFileRoute("/$lang/projects")({
   head: ({ params }) => pageHead(isLang(params.lang) ? params.lang : "en", "projects", "/projects"),
@@ -16,11 +56,50 @@ function Projects() {
 
   return (
     <>
-      <PageHero lang={lang} kicker={t.projects.kicker} title={t.projects.title} intro={t.projects.note} />
+      <PageHero
+        lang={lang}
+        kicker={t.projects.kicker}
+        title={t.projects.title}
+        intro={t.projects.note}
+      />
 
       <Section className="section-light">
         <div className="max-w-4xl">
           <p className="text-lg text-muted-foreground">{t.projects.intro}</p>
+          <h2 className="mt-16 text-3xl font-extrabold md:text-4xl">
+            {lang === "ar" ? "مشاريع مختارة بالصور" : "Selected projects in pictures"}
+          </h2>
+        </div>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {featuredProjects.map((project) => (
+            <article
+              key={project.en}
+              className={`group overflow-hidden border bg-surface ${project.military ? "border-orange" : "border-hairline"}`}
+            >
+              <div className="relative h-72 overflow-hidden bg-navy">
+                <img
+                  src={project.image}
+                  alt={lang === "ar" ? project.ar : project.en}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                {project.military && (
+                  <span className="absolute end-4 top-4 bg-orange px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-wider text-primary-foreground">
+                    {lang === "ar" ? "مشروع عسكري" : "Military project"}
+                  </span>
+                )}
+              </div>
+              <div className="border-t-4 border-orange p-6">
+                <h3 className="font-bold leading-relaxed">
+                  {lang === "ar" ? project.ar : project.en}
+                </h3>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="max-w-4xl">
           <h2 className="mt-16 text-3xl font-extrabold md:text-4xl">{t.projects.majorTitle}</h2>
           <p className="mt-4 text-muted-foreground">{t.projects.majorNote}</p>
         </div>
@@ -37,9 +116,21 @@ function Projects() {
               </thead>
               <tbody className="divide-y divide-hairline">
                 {t.projects.rows.map((row, i) => (
-                  <tr key={`${row.name}-${i}`} className="transition-colors hover:bg-surface-2/40">
+                  <tr
+                    key={`${row.name}-${i}`}
+                    className={`transition-colors hover:bg-surface-2/40 ${row.military ? "border-s-4 border-orange bg-orange/8" : ""}`}
+                  >
                     <td className="px-5 py-4 font-bold text-orange">{i + 1}</td>
-                    <td className="px-5 py-4 font-semibold">{row.name}</td>
+                    <td className="px-5 py-4 font-semibold">
+                      <div className="flex flex-wrap items-center gap-3">
+                        <span>{row.name}</span>
+                        {row.military && (
+                          <span className="border border-orange/50 bg-orange/10 px-2 py-1 text-[10px] font-extrabold tracking-wider text-orange uppercase">
+                            {lang === "ar" ? "مشروع عسكري" : "Military project"}
+                          </span>
+                        )}
+                      </div>
+                    </td>
                     <td className="px-5 py-4 text-muted-foreground">{row.location}</td>
                   </tr>
                 ))}
